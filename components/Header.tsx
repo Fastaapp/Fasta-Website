@@ -7,9 +7,9 @@ import Image from 'next/image'
 import type { ReactNode } from 'react'
 
 const NAV_LINKS: { label: ReactNode; key: string; href: string }[] = [
-  { key: 'how',     label: 'How It Works',                          href: '#how-it-works'  },
-  { key: 'pricing', label: 'Pricing',                               href: '#pricing'        },
-  { key: 'partner', label: <><em>Fasta</em> Partner</>,             href: '#fasta-partner'  },
+  { key: 'how',     label: 'How It Works',                          href: '/#how-it-works'  },
+  { key: 'pricing', label: 'Pricing',                               href: '/#pricing'        },
+  { key: 'partner', label: <><em>Fasta</em> Partner</>,             href: '/#fasta-partner'  },
 ]
 
 const SERVICE_LINKS = [
@@ -54,7 +54,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-12 md:h-14">
 
           {/* ── Logo ──────────────────────────────────────────────── */}
-          <a href="#" className="flex items-center shrink-0" aria-label="Fasta home">
+          <a href="/" className="flex items-center shrink-0" aria-label="Fasta home">
             <div className="relative w-28 h-8">
               <Image src="/logo-footer.png" alt="Fasta logo" fill className="object-contain object-left" priority />
             </div>
@@ -107,7 +107,7 @@ export default function Header() {
           {/* ── Desktop CTAs ───────────────────────────────────────── */}
           <div className="hidden md:flex items-center gap-3">
             <motion.a
-              href="#download"
+              href="/#download"
               className="px-5 py-2.5 bg-brand text-white text-sm font-semibold rounded-full hover:bg-brand-dark transition-colors shadow-lg shadow-brand/25"
               whileHover={{ scale: 1.04, boxShadow: '0 8px 30px rgba(224,85,53,0.4)' }}
               whileTap={{ scale: 0.96 }}
@@ -184,14 +184,14 @@ export default function Header() {
               ))}
               <div className="mt-4 flex flex-col gap-3">
                 <a
-                  href="#fasta-partner"
+                  href="/#fasta-partner"
                   className="w-full text-center py-3 border border-white/20 text-white font-semibold rounded-full hover:border-brand hover:text-brand transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   <em>Fasta</em> Partner
                 </a>
                 <a
-                  href="#download"
+                  href="/#download"
                   className="w-full text-center py-3 bg-brand text-white font-semibold rounded-full shadow-lg shadow-brand/30"
                   onClick={() => setMobileOpen(false)}
                 >
