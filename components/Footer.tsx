@@ -1,15 +1,15 @@
 import Image from 'next/image'
 
 const LINKS = {
-  Company: [
-    { label: 'About Us',      href: '#' },
-    { label: 'Careers',       href: '#' },
-    { label: 'Blog',          href: '#' },
-    { label: 'Press',         href: '#' },
+  Services: [
+    { label: 'Electrician',   href: '/services/electrician-kenya'   },
+    { label: 'Plumbing',      href: '/services/plumbing-kenya'      },
+    { label: 'AC & HVAC',     href: '/services/hvac-kenya'          },
+    { label: 'Handyman',      href: '/services/handyman-kenya'      },
+    { label: 'All Services',  href: '/services/home-services-kenya' },
   ],
   Product: [
     { label: 'How It Works',  href: '#how-it-works'  },
-    { label: 'Services',      href: '#services'       },
     { label: 'Pricing',       href: '#pricing'        },
     { label: 'Fasta Partner', href: '#fasta-partner'  },
   ],
@@ -69,10 +69,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-8">
 
         {/* ── Main Grid ─────────────────────────────────────────── */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
 
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-1">
             <div className="relative w-52 h-14 mb-4">
               <Image src="/logo-footer.png" alt="Fasta logo" fill className="object-contain object-left" />
             </div>

@@ -1,26 +1,46 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
 import type { ReactNode } from 'react'
 
 const NAV_LINKS: { label: ReactNode; key: string; href: string }[] = [
   { key: 'how',     label: 'How It Works',                          href: '#how-it-works'  },
-  { key: 'services',label: 'Services',                              href: '#services'       },
   { key: 'pricing', label: 'Pricing',                               href: '#pricing'        },
   { key: 'partner', label: <><em>Fasta</em> Partner</>,             href: '#fasta-partner'  },
 ]
 
+const SERVICE_LINKS = [
+  { label: 'Electrician',  href: '/services/electrician-kenya'   },
+  { label: 'Plumbing',     href: '/services/plumbing-kenya'      },
+  { label: 'AC & HVAC',   href: '/services/hvac-kenya'          },
+  { label: 'Handyman',     href: '/services/handyman-kenya'      },
+  { label: 'All Services', href: '/services/home-services-kenya' },
+]
+
 export default function Header() {
-  const [scrolled,   setScrolled]   = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled,      setScrolled]      = useState(false)
+  const [mobileOpen,    setMobileOpen]    = useState(false)
+  const [servicesOpen,  setServicesOpen]  = useState(false)
+  const [mobileServices, setMobileServices] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setServicesOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
   }, [])
 
   return (
@@ -42,6 +62,37 @@ export default function Header() {
 
           {/* ── Desktop Nav ────────────────────────────────────────── */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+            {/* Services dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="flex items-center gap-1 text-sm font-semibold text-white/80 hover:text-brand transition-colors duration-200"
+              >
+                Services <ChevronDown size={14} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full left-0 mt-2 w-48 bg-[#2C3033] border border-white/10 rounded-xl shadow-xl overflow-hidden"
+                  >
+                    {SERVICE_LINKS.map((s) => (
+                      <a
+                        key={s.href}
+                        href={s.href}
+                        onClick={() => setServicesOpen(false)}
+                        className="block px-4 py-2.5 text-sm text-white/75 hover:text-brand hover:bg-white/5 transition-colors"
+                      >
+                        {s.label}
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             {NAV_LINKS.map((link) => (
               <a
                 key={link.key}
@@ -97,6 +148,27 @@ export default function Header() {
             transition={{ duration: 0.25, ease: 'easeInOut' }}
           >
             <div className="px-5 py-5 flex flex-col gap-1">
+              {/* Services expandable */}
+              <button
+                onClick={() => setMobileServices(!mobileServices)}
+                className="flex items-center justify-between py-3 px-2 text-white/80 font-medium hover:text-brand transition-colors rounded-lg"
+              >
+                Services <ChevronDown size={14} className={`transition-transform duration-200 ${mobileServices ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileServices && (
+                <div className="pl-4 flex flex-col gap-1 mb-1">
+                  {SERVICE_LINKS.map((s) => (
+                    <a
+                      key={s.href}
+                      href={s.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="py-2 px-2 text-sm text-white/60 hover:text-brand transition-colors rounded-lg"
+                    >
+                      {s.label}
+                    </a>
+                  ))}
+                </div>
+              )}
               {NAV_LINKS.map((link, i) => (
                 <motion.a
                   key={link.key}
