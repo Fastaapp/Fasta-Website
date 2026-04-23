@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, type PanInfo } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star, CheckCircle, Zap, Wrench, Droplets, Wind } from 'lucide-react'
 
 const APP_SERVICES = [
@@ -192,6 +192,11 @@ export default function AppPreview() {
   const prev = () => setCurrent((c) => (c - 1 + SCREENS.length) % SCREENS.length)
   const next = () => setCurrent((c) => (c + 1) % SCREENS.length)
 
+  const handleDragEnd = (_: unknown, info: PanInfo) => {
+    if (info.offset.x < -50) next()
+    else if (info.offset.x > 50) prev()
+  }
+
   const Screen = SCREENS[current].component
 
   return (
@@ -264,7 +269,13 @@ export default function AppPreview() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative w-[220px] sm:w-[260px] md:w-[300px] phone-glow">
+            <motion.div
+              className="relative w-[220px] sm:w-[260px] md:w-[300px] phone-glow cursor-grab active:cursor-grabbing"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.15}
+              onDragEnd={handleDragEnd}
+            >
               {/* Phone frame */}
               <div className="relative w-full aspect-[9/19] bg-[#1A1C1E] rounded-[44px] p-[3px] shadow-2xl ring-1 ring-white/10">
                 <div className="absolute -left-[3px] top-20 w-[3px] h-8 bg-[#2C2F32] rounded-l-sm" />
@@ -297,7 +308,7 @@ export default function AppPreview() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Dots */}
