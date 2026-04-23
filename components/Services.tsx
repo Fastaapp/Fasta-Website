@@ -9,6 +9,7 @@ const SERVICES = [
   {
     icon: Droplets,
     name: 'Plumbing',
+    href: '/services/plumbing-kenya',
     description: 'Leaks, installations, drain issues and pipe repairs handled fast.',
     color: '#BAE6FD',
     iconColor: '#0284C7',
@@ -17,6 +18,7 @@ const SERVICES = [
   {
     icon: Zap,
     name: 'Electrical',
+    href: '/services/electrician-kenya',
     description: 'Wiring, repairs, installations and more. Safe, certified pros.',
     color: '#FEF08A',
     iconColor: '#CA8A04',
@@ -25,6 +27,7 @@ const SERVICES = [
   {
     icon: Wind,
     name: 'HVAC',
+    href: '/services/hvac-kenya',
     description: 'Air conditioner servicing, installation, repair and maintenance.',
     color: '#BAE6FD',
     iconColor: '#0369A1',
@@ -33,6 +36,7 @@ const SERVICES = [
   {
     icon: Wrench,
     name: 'Handyman',
+    href: '/services/handyman-kenya',
     description: 'General repairs, furniture assembly, mounting and odd jobs done right.',
     color: '#FED7AA',
     iconColor: '#C2410C',
@@ -90,15 +94,16 @@ export default function Services() {
           {SERVICES.map((service) => {
             const Icon = service.icon
             return (
-              <motion.div
+              <motion.a
                 key={service.name}
+                href={service.href}
                 variants={cardVariant}
                 whileHover={{
                   y: -6,
                   boxShadow: '0 20px 40px rgba(224,85,53,0.12)',
                   transition: { duration: 0.25 },
                 }}
-                className="group relative bg-white rounded-2xl p-5 cursor-default border border-gray-100 transition-all duration-300 overflow-hidden"
+                className="group relative bg-white rounded-2xl p-5 border border-gray-100 transition-all duration-300 overflow-hidden block"
               >
                 {/* Top accent line (appears on hover) */}
                 <div
@@ -129,7 +134,7 @@ export default function Services() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
-              </motion.div>
+              </motion.a>
             )
           })}
         </motion.div>
