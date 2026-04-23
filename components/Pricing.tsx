@@ -23,10 +23,8 @@ const PLANS = [
       { text: 'In-app job tracking',             included: true  },
       { text: 'Choose your date & time',         included: false },
       { text: 'Easy rescheduling',               included: false },
-      { text: 'Priority matching',               included: false },
       { text: 'Emergency same-day bookings',     included: false },
       { text: 'Priority support',                included: false },
-      { text: 'Service quality guarantee',       included: false },
     ],
   },
   {
@@ -46,7 +44,6 @@ const PLANS = [
       { text: 'Choose your date & time',         included: true  },
       { text: 'In-app job tracking',             included: true  },
       { text: 'Easy rescheduling',               included: true  },
-      { text: 'Priority matching',               included: false },
       { text: 'Emergency same-day bookings',     included: false },
       { text: 'Priority support',                included: false },
       { text: 'Service quality guarantee',       included: false },
