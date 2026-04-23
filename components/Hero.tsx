@@ -1,16 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Star, CheckCircle, Zap, Wrench, Sparkles, Hammer, Paintbrush, Wind } from 'lucide-react'
+import { Star, CheckCircle, Zap, Wrench, Droplets, Wind } from 'lucide-react'
 
-// ─── Service icons replacing all emoji ───────────────────────────────────────
 const PHONE_SERVICES = [
-  { Icon: Zap,        label: 'Electrical' },
-  { Icon: Wrench,     label: 'Plumbing'   },
-  { Icon: Sparkles,   label: 'Cleaning'   },
-  { Icon: Hammer,     label: 'Carpentry'  },
-  { Icon: Paintbrush, label: 'Painting'   },
-  { Icon: Wind,       label: 'AC & HVAC'  },
+  { Icon: Droplets, label: 'Plumbing'   },
+  { Icon: Zap,      label: 'Electrical' },
+  { Icon: Wind,     label: 'AC & HVAC'  },
+  { Icon: Wrench,   label: 'Handyman'   },
 ]
 
 // ─── App store badge SVGs ─────────────────────────────────────────────────────
@@ -112,7 +109,7 @@ function PhoneMockup() {
           {/* Services Grid */}
           <div className="px-4 pt-3 pb-2 flex-1 overflow-hidden">
             <p className="text-[10px] text-dark/50 font-semibold font-body mb-2.5 uppercase tracking-wider">Popular Services</p>
-            <div className="grid grid-cols-3 gap-2 mb-3">
+            <div className="grid grid-cols-2 gap-2 mb-3">
               {PHONE_SERVICES.map(({ Icon, label }) => (
                 <div key={label} className="bg-white rounded-xl p-2 flex flex-col items-center gap-1 shadow-sm border border-gray-100">
                   <Icon size={14} className="text-brand" />
@@ -168,7 +165,7 @@ function PhoneMockup() {
         </div>
       </FloatingBadge>
 
-      <FloatingBadge delay={0.8} className="-left-8 bottom-24 md:-left-14">
+      <FloatingBadge delay={0.8} className="-left-8 bottom-24 md:-left-14 !bg-[#1E2123] !border-white/10 border">
         <div className="flex items-center gap-1.5">
           <Zap size={11} className="text-brand fill-brand" />
           <span>Pro found in 3 min</span>
