@@ -204,7 +204,7 @@ export default function Pricing() {
                 <div className={`h-px mb-5 ${plan.dark ? 'bg-white/8' : 'bg-gray-100'}`} />
 
                 {/* Features */}
-                <ul className="flex flex-col gap-3 mb-7 flex-1">
+                <ul className="flex flex-col gap-3 mb-7">
                   {plan.features.map((f) => (
                     <li key={f.text} className={`flex items-center gap-2.5 ${!f.included ? 'opacity-35' : ''}`}>
                       <div className={`shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${
@@ -233,7 +233,7 @@ export default function Pricing() {
                 {/* CTA */}
                 <motion.a
                   href="/#download"
-                  className={`w-full py-4 rounded-2xl text-sm font-bold font-body text-center flex items-center justify-center gap-2 transition-all ${
+                  className={`mt-auto w-full py-4 rounded-2xl text-sm font-bold font-body text-center flex items-center justify-center gap-2 transition-all ${
                     plan.highlight
                       ? 'bg-brand text-white hover:bg-brand-dark shadow-lg shadow-brand/25'
                       : plan.dark
