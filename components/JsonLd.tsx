@@ -95,7 +95,6 @@ export function LocalBusinessSchema() {
           ],
           priceRange: 'KES',
           openingHours: 'Mo-Su 00:00-24:00',
-          telephone: '+254700000000',
         }),
       }}
     />

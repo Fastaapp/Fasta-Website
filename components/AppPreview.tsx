@@ -2,15 +2,13 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Star, CheckCircle, Zap, Wrench, Sparkles, Hammer, Paintbrush, Wind } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Star, CheckCircle, Zap, Wrench, Droplets, Wind } from 'lucide-react'
 
 const APP_SERVICES = [
-  { Icon: Zap,        label: 'Electrical', hot: true  },
-  { Icon: Wrench,     label: 'Plumbing',   hot: false },
-  { Icon: Sparkles,   label: 'Cleaning',   hot: false },
-  { Icon: Hammer,     label: 'Carpentry',  hot: false },
-  { Icon: Paintbrush, label: 'Painting',   hot: false },
-  { Icon: Wind,       label: 'AC & HVAC',  hot: false },
+  { Icon: Droplets, label: 'Plumbing',   hot: false },
+  { Icon: Zap,      label: 'Electrical', hot: true  },
+  { Icon: Wind,     label: 'AC & HVAC',  hot: false },
+  { Icon: Wrench,   label: 'Handyman',   hot: false },
 ]
 
 // ─── Screen content components ────────────────────────────────────────────────
@@ -37,7 +35,7 @@ function HomeScreen() {
       </div>
 
       <div className="px-4 -mt-4 flex-1">
-        <div className="grid grid-cols-3 gap-2 mb-3">
+        <div className="grid grid-cols-2 gap-2 mb-3">
           {APP_SERVICES.map(({ Icon, label, hot }) => (
             <div key={label} className={`relative bg-white rounded-xl p-2.5 flex flex-col items-center gap-1 shadow-sm border ${hot ? 'border-brand/30' : 'border-transparent'}`}>
               {hot && <div className="absolute -top-1 -right-1 w-3 h-3 bg-brand rounded-full" />}
@@ -199,7 +197,7 @@ export default function AppPreview() {
   return (
     <section id="app-preview" className="py-24 md:py-32 bg-dark-gradient relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(226,94,178,0.15),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(224,85,53,0.12),transparent_70%)]" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/30 to-transparent" />
       </div>
 

@@ -175,25 +175,6 @@ function PhoneMockup() {
   )
 }
 
-// ─── Ticker ───────────────────────────────────────────────────────────────────
-const SERVICES = ['Electrical', 'Plumbing', 'Carpentry', 'Painting', 'Cleaning', 'AC & HVAC', 'Appliances', 'Moving', 'Tiling', 'Roofing']
-
-function Ticker() {
-  const doubled = [...SERVICES, ...SERVICES]
-  return (
-    <div className="ticker-wrap py-4 border-t border-white/10">
-      <div className="ticker-inner">
-        {doubled.map((s, i) => (
-          <span key={i} className="flex items-center gap-4 mx-6 text-sm text-white/50 font-body whitespace-nowrap">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
-            {s}
-          </span>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 const container = {
   hidden: {},
