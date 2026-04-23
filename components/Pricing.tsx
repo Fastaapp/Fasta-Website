@@ -44,7 +44,7 @@ const PLANS = [
     highlight: true,
     dark:      false,
     badge:     'Most Popular',
-    microcopy: ['⚡ Get matched quicker', '📲 Stay updated in real time'],
+    microcopy: ['Get matched quicker', 'Stay updated in real time'],
     features: [
       'Unlimited job requests',
       'Faster service',
@@ -70,7 +70,7 @@ const PLANS = [
     highlight: false,
     dark:      true,
     badge:     'Premium',
-    microcopy: ['🚀 Skip the queue completely', '🛡 Get priority support when it matters'],
+    microcopy: ['Skip the queue completely', 'Get priority support when it matters'],
     features: [
       'Unlimited job requests',
       'Fastest service',
@@ -87,8 +87,8 @@ const PLANS = [
 // ─── Comparison rows ─────────────────────────────────────────────────────────
 const COMPARE_ROWS = [
   { feature: 'Job Requests',     free: 'Limited',   plus: 'Unlimited',  elite: 'Unlimited'    },
-  { feature: 'Speed of Service', free: 'Standard',  plus: 'Faster ⚡',  elite: 'Fastest 🚀'   },
-  { feature: 'Queue Position',   free: 'Back',       plus: 'Priority',   elite: 'Skip 🚀'      },
+  { feature: 'Speed of Service', free: 'Standard',  plus: 'Faster',     elite: 'Fastest'      },
+  { feature: 'Queue Position',   free: 'Back',       plus: 'Priority',   elite: 'Skip'         },
   { feature: 'Job Tracking',     free: 'Basic',      plus: 'Live updates', elite: 'Priority updates' },
   { feature: 'Rescheduling',     free: false,        plus: true,         elite: true            },
   { feature: 'Emergency Requests', free: false,      plus: false,        elite: true            },
