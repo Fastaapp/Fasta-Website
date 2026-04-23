@@ -29,7 +29,7 @@ const BENEFITS = [
 // ─── Fasta Partner app dashboard mockup ──────────────────────────────────────
 function PartnerDashboard() {
   return (
-    <div className="relative w-full max-w-sm mx-auto">
+    <div className="relative w-full max-w-[90vw] sm:max-w-sm mx-auto">
       {/* Main card — dark, professional feel distinct from consumer app */}
       <div className="bg-dark rounded-3xl shadow-2xl overflow-hidden border border-white/8">
 
@@ -99,7 +99,7 @@ function PartnerDashboard() {
 
       {/* Floating badge — no emoji, clean text */}
       <motion.div
-        className="absolute -top-3 -right-3 bg-green-500 text-white text-[10px] font-semibold font-body px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5"
+        className="absolute -top-3 -right-3 bg-green-500 text-white text-[10px] font-semibold font-body px-3 py-1.5 rounded-full shadow-lg hidden sm:flex items-center gap-1.5"
         animate={{ y: [0, -5, 0] }}
         transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
       >
@@ -108,7 +108,7 @@ function PartnerDashboard() {
       </motion.div>
 
       <motion.div
-        className="absolute -bottom-3 -left-3 bg-brand text-white text-[10px] font-semibold font-body px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5"
+        className="absolute -bottom-3 -left-3 bg-brand text-white text-[10px] font-semibold font-body px-3 py-1.5 rounded-full shadow-lg hidden sm:flex items-center gap-1.5"
         animate={{ y: [0, 5, 0] }}
         transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut', delay: 1 }}
       >
@@ -167,7 +167,7 @@ export default function FastaPartner() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 className="font-heading font-black text-white text-4xl md:text-5xl lg:text-[52px] tracking-tight leading-[1.05] mb-5">
+            <h2 className="font-heading font-black text-white text-3xl sm:text-4xl md:text-5xl lg:text-[52px] tracking-tight leading-[1.05] mb-5">
               Built for Kenya's<br />
               <span className="gradient-text">Skilled Workforce.</span>
             </h2>

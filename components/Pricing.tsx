@@ -131,7 +131,7 @@ export default function Pricing() {
 
         {/* ── Stat strip ───────────────────────────────────────────── */}
         <motion.div
-          className="grid grid-cols-3 gap-4 mb-12 max-w-2xl mx-auto"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -255,7 +255,7 @@ export default function Pricing() {
                 {/* CTA */}
                 <motion.a
                   href="/#download"
-                  className={`w-full py-3.5 rounded-2xl text-sm font-bold font-body text-center flex items-center justify-center gap-2 transition-all ${
+                  className={`w-full py-4 rounded-2xl text-sm font-bold font-body text-center flex items-center justify-center gap-2 transition-all ${
                     plan.highlight
                       ? 'bg-brand text-white hover:bg-brand-dark shadow-lg shadow-brand/25'
                       : plan.dark

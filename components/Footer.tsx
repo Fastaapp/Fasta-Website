@@ -69,11 +69,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-8">
 
         {/* ── Main Grid ─────────────────────────────────────────── */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 mb-14">
 
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="relative w-52 h-14 mb-4">
+            <div className="relative w-40 h-10 sm:w-52 sm:h-14 mb-4">
               <Image src="/logo-footer.png" alt="Fasta logo" fill className="object-contain object-left" />
             </div>
             <p className="text-white/50 text-sm font-body leading-relaxed mb-6 max-w-xs">

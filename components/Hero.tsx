@@ -71,7 +71,7 @@ function FloatingBadge({
 // ─── Phone Mockup (App UI preview) ───────────────────────────────────────────
 function PhoneMockup() {
   return (
-    <div className="relative w-[260px] md:w-[290px]">
+    <div className="relative w-[220px] sm:w-[260px] md:w-[290px]">
       {/* Phone frame */}
       <div className="relative w-full aspect-[9/19] bg-[#1A1C1E] rounded-[42px] p-[3px] shadow-2xl ring-1 ring-white/10 phone-glow">
         {/* Side buttons */}
@@ -151,21 +151,21 @@ function PhoneMockup() {
       </div>
 
       {/* Floating badges around phone */}
-      <FloatingBadge delay={0} className="-left-14 top-16 md:-left-20">
+      <FloatingBadge delay={0} className="hidden sm:flex -left-14 top-16 md:-left-20">
         <div className="flex items-center gap-1.5">
           <CheckCircle size={12} className="text-green-400" />
           <span>Verified Pro</span>
         </div>
       </FloatingBadge>
 
-      <FloatingBadge delay={1.5} className="-right-10 top-28 md:-right-16">
+      <FloatingBadge delay={1.5} className="hidden sm:flex -right-10 top-28 md:-right-16">
         <div className="flex items-center gap-1.5">
           <Star size={11} className="text-yellow-400 fill-yellow-400" />
           <span>4.9 Rating</span>
         </div>
       </FloatingBadge>
 
-      <FloatingBadge delay={0.8} className="-left-8 bottom-24 md:-left-14 !bg-[#1E2123] !border-white/10 border">
+      <FloatingBadge delay={0.8} className="hidden sm:flex -left-8 bottom-24 md:-left-14 !bg-[#1E2123] !border-white/10 border">
         <div className="flex items-center gap-1.5">
           <Zap size={11} className="text-brand fill-brand" />
           <span>Pro found in 3 min</span>
@@ -215,7 +215,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Headline */}
-          <motion.h1 variants={item} className="font-heading font-black text-white text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-6">
+          <motion.h1 variants={item} className="font-heading font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-6">
             Get Things<br />
             <span className="gradient-text">Fixed. Fast.</span>
           </motion.h1>
@@ -227,13 +227,13 @@ export default function Hero() {
           </motion.p>
 
           {/* App Store CTAs */}
-          <motion.div variants={item} className="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-8">
+          <motion.div variants={item} className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 mb-8">
             <AppleBadge />
             <PlayBadge />
           </motion.div>
 
           {/* Social proof */}
-          <motion.div variants={item} className="flex items-center justify-center md:justify-start gap-6 text-sm text-white/50 font-body">
+          <motion.div variants={item} className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 sm:gap-6 text-sm text-white/50 font-body">
             <div className="flex items-center gap-2">
               {/* Avatar stack */}
               <div className="flex -space-x-2">

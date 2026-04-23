@@ -75,7 +75,7 @@ export default function FinalCTA() {
 
         {/* Main headline */}
         <motion.h2
-          className="font-heading font-black text-white text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.02] mb-6"
+          className="font-heading font-black text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-[1.02] mb-6"
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -99,7 +99,7 @@ export default function FinalCTA() {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-wrap items-center justify-center gap-4 mb-10"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -111,7 +111,7 @@ export default function FinalCTA() {
 
         {/* Social proof */}
         <motion.div
-          className="flex flex-wrap items-center justify-center gap-6 text-white/60 text-sm font-body"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-white/60 text-sm font-body"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

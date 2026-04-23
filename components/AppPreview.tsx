@@ -234,7 +234,7 @@ export default function AppPreview() {
             >
               <ChevronLeft size={18} />
             </button>
-            <div className="text-center w-40">
+            <div className="text-center w-32 sm:w-40">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current}
@@ -264,7 +264,7 @@ export default function AppPreview() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative w-[260px] md:w-[300px] phone-glow">
+            <div className="relative w-[220px] sm:w-[260px] md:w-[300px] phone-glow">
               {/* Phone frame */}
               <div className="relative w-full aspect-[9/19] bg-[#1A1C1E] rounded-[44px] p-[3px] shadow-2xl ring-1 ring-white/10">
                 <div className="absolute -left-[3px] top-20 w-[3px] h-8 bg-[#2C2F32] rounded-l-sm" />

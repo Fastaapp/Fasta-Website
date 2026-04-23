@@ -196,7 +196,7 @@ export default function HowItWorks() {
         </motion.div>
 
         {/* ── Step Selector + Visual ────────────────────────────── */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 lg:gap-16 items-start">
 
           {/* Left: Steps list */}
           <div className="flex flex-col gap-2">
@@ -254,7 +254,7 @@ export default function HowItWorks() {
           </div>
 
           {/* Right: Visual */}
-          <div className="sticky top-28">
+          <div className="sticky top-20 md:top-28">
             <motion.div
               className="relative w-full aspect-square max-w-md mx-auto bg-brand/5 rounded-3xl border border-brand/10 overflow-hidden"
               initial={{ opacity: 0, scale: 0.95 }}
