@@ -129,25 +129,6 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        {/* ── Stat strip ───────────────────────────────────────────── */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          {PLAN_STATS.map(({ icon: Icon, label, value, note }) => (
-            <div key={label} className="text-center">
-              <div className="w-9 h-9 rounded-xl bg-brand/10 flex items-center justify-center mx-auto mb-2">
-                <Icon size={16} className="text-brand" />
-              </div>
-              <p className="font-heading font-black text-dark text-lg leading-tight">{value}</p>
-              <p className="text-dark/40 text-[11px] font-body leading-tight mt-0.5">{note}</p>
-            </div>
-          ))}
-        </motion.div>
-
         {/* ── Cards ────────────────────────────────────────────────── */}
         <div className="grid md:grid-cols-3 gap-5 lg:gap-6 items-stretch mb-16">
           {PLANS.map((plan, i) => (
