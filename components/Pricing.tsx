@@ -285,9 +285,9 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* ── Comparison Table ─────────────────────────────────────── */}
+        {/* ── Comparison Table — desktop only, cards cover mobile ──── */}
         <motion.div
-          className="bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden"
+          className="hidden md:block bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
