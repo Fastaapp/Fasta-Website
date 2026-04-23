@@ -1,95 +1,99 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Check, X, Zap, CalendarDays, Shield, Clock, Star, Flame } from 'lucide-react'
+import { Check, X, Flame, Star } from 'lucide-react'
 
 // ─── Plans ────────────────────────────────────────────────────────────────────
 const PLANS = [
   {
-    key:         'free',
-    name:        'Fasta Free',
-    price:       '0',
-    priceNote:   'Free forever',
-    tagline:     'Get started. See how it works.',
-    nudge:       'Limited requests. Slower matching.',
-    cta:         'Download Free',
-    highlight:   false,
-    dark:        false,
-    badge:       null,
+    key:       'free',
+    name:      'Fasta Free',
+    price:     '0',
+    priceNote: 'Free forever',
+    tagline:   'Get started',
+    nudge:     'Basic access when you need it',
+    subtext:   'Slower during busy periods',
+    cta:       'Get Started',
+    highlight: false,
+    dark:      false,
+    badge:     null,
+    microcopy: null,
     features: [
-      { text: '3 job requests per month',       included: true  },
-      { text: 'Standard matching speed',         included: true  },
-      { text: 'Next available slot only',        included: true  },
-      { text: 'In-app job tracking',             included: true  },
-      { text: 'Choose your date & time',         included: false },
-      { text: 'Easy rescheduling',               included: false },
-      { text: 'Emergency same-day bookings',     included: false },
-      { text: 'Priority support',                included: false },
+      'Limited job requests',
+      'Standard speed of service',
+      'Basic job tracking',
+      'Standard queue position',
+    ],
+    excluded: [
+      'Priority queue placement',
+      'Easy rescheduling',
+      'Emergency requests',
+      'Priority support',
+      'Service assurance',
     ],
   },
   {
-    key:         'plus',
-    name:        'Fasta Plus',
-    price:       '499',
-    priceNote:   'KSh / month',
-    tagline:     'Faster service. Full control.',
-    nudge:       'Most Fasta customers choose this.',
-    cta:         'Get Fasta Plus',
-    highlight:   true,
-    dark:        false,
-    badge:       'Most Popular',
+    key:       'plus',
+    name:      'Fasta Plus',
+    price:     '499',
+    priceNote: 'KSh / month',
+    tagline:   'Get it done faster',
+    nudge:     'More speed. More control.',
+    subtext:   null,
+    cta:       'Upgrade to Plus',
+    highlight: true,
+    dark:      false,
+    badge:     'Most Popular',
+    microcopy: ['⚡ Get matched quicker', '📲 Stay updated in real time'],
     features: [
-      { text: 'Unlimited job requests',          included: true  },
-      { text: 'Faster matching (avg. <8 min)',   included: true  },
-      { text: 'Choose your date & time',         included: true  },
-      { text: 'In-app job tracking',             included: true  },
-      { text: 'Easy rescheduling',               included: true  },
-      { text: 'Emergency same-day bookings',     included: false },
-      { text: 'Priority support',                included: false },
-      { text: 'Service quality guarantee',       included: false },
+      'Unlimited job requests',
+      'Faster service',
+      'Priority queue placement',
+      'Live job tracking',
+      'Easy rescheduling',
+    ],
+    excluded: [
+      'Emergency requests',
+      'Priority support',
+      'Service assurance',
     ],
   },
   {
-    key:         'elite',
-    name:        'Fasta Elite',
-    price:       '999',
-    priceNote:   'KSh / month',
-    tagline:     'Priority everything. Zero stress.',
-    nudge:       'The fastest, most reliable experience on Fasta.',
-    cta:         'Go Elite',
-    highlight:   false,
-    dark:        true,
-    badge:       'Premium',
+    key:       'elite',
+    name:      'Fasta Elite',
+    price:     '999',
+    priceNote: 'KSh / month',
+    tagline:   'Priority service. Zero hassle.',
+    nudge:     'Fastest service with full priority',
+    subtext:   null,
+    cta:       'Go Elite',
+    highlight: false,
+    dark:      true,
+    badge:     'Premium',
+    microcopy: ['🚀 Skip the queue completely', '🛡 Get priority support when it matters'],
     features: [
-      { text: 'Unlimited job requests',          included: true  },
-      { text: 'Highest priority matching',       included: true  },
-      { text: 'Best time slots, guaranteed',     included: true  },
-      { text: 'In-app job tracking',             included: true  },
-      { text: 'Emergency same-day bookings',     included: true  },
-      { text: 'Guaranteed time windows',         included: true  },
-      { text: '24/7 priority support',           included: true  },
-      { text: 'Service quality guarantee',       included: true  },
+      'Unlimited job requests',
+      'Fastest service',
+      'Skip the queue',
+      'Live + priority updates',
+      'Emergency requests',
+      'Priority support',
+      'Service assurance',
     ],
+    excluded: [],
   },
-]
-
-// ─── Highlight stats shown above cards ───────────────────────────────────────
-const PLAN_STATS = [
-  { icon: Zap,          label: 'Avg. match time',  value: '<8 min',   note: 'on Plus & Elite' },
-  { icon: CalendarDays, label: 'Scheduling',       value: 'Your call', note: 'Pick your date & time' },
-  { icon: Shield,       label: 'Quality guarantee',value: 'Elite',    note: 'Every job, every time' },
 ]
 
 // ─── Comparison rows ─────────────────────────────────────────────────────────
 const COMPARE_ROWS = [
-  { feature: 'Job requests',             free: '3 / month',    plus: 'Unlimited',    elite: 'Unlimited'    },
-  { feature: 'Matching speed',           free: 'Standard',     plus: 'Fast',         elite: 'Priority'     },
-  { feature: 'Scheduling',               free: 'Next available', plus: 'Your choice', elite: 'Best slots'  },
-  { feature: 'Rescheduling',             free: false,          plus: true,           elite: true           },
-  { feature: 'Emergency bookings',       free: false,          plus: false,          elite: true           },
-  { feature: 'Guaranteed time window',   free: false,          plus: false,          elite: true           },
-  { feature: 'Priority support',         free: false,          plus: false,          elite: true           },
-  { feature: 'Quality guarantee',        free: false,          plus: false,          elite: true           },
+  { feature: 'Job Requests',     free: 'Limited',   plus: 'Unlimited',  elite: 'Unlimited'    },
+  { feature: 'Speed of Service', free: 'Standard',  plus: 'Faster ⚡',  elite: 'Fastest 🚀'   },
+  { feature: 'Queue Position',   free: 'Back',       plus: 'Priority',   elite: 'Skip 🚀'      },
+  { feature: 'Job Tracking',     free: 'Basic',      plus: 'Live updates', elite: 'Priority updates' },
+  { feature: 'Rescheduling',     free: false,        plus: true,         elite: true            },
+  { feature: 'Emergency Requests', free: false,      plus: false,        elite: true            },
+  { feature: 'Priority Support', free: false,        plus: false,        elite: true            },
+  { feature: 'Service Assurance',free: false,        plus: false,        elite: true            },
 ]
 
 function Cell({ value }: { value: string | boolean }) {
@@ -122,7 +126,7 @@ export default function Pricing() {
             <span className="gradient-text">the less you wait.</span>
           </h2>
           <p className="text-dark/50 text-lg font-body max-w-md mx-auto">
-            Start free. Upgrade when you want faster matching, full scheduling control, and priority service.
+            Start free. Upgrade for faster service, priority access, and more control.
           </p>
         </motion.div>
 
@@ -145,13 +149,13 @@ export default function Pricing() {
             >
               {/* Badge */}
               {plan.badge && (
-                <div className={`absolute top-0 left-0 right-0 flex justify-center`}>
+                <div className="absolute top-0 left-0 right-0 flex justify-center">
                   <span className={`px-4 py-1.5 text-[10px] font-bold font-body rounded-b-xl tracking-widest uppercase ${
                     plan.highlight
                       ? 'bg-brand text-white shadow-lg shadow-brand/30'
                       : 'bg-white/15 text-white/80'
                   }`}>
-                    {plan.badge === 'Premium' ? (
+                    {plan.dark ? (
                       <span className="flex items-center gap-1"><Star size={10} className="fill-current" /> {plan.badge}</span>
                     ) : plan.badge}
                   </span>
@@ -170,13 +174,13 @@ export default function Pricing() {
                 {/* Price */}
                 <div className="flex items-end gap-1.5 mb-1">
                   {plan.price === '0' ? (
-                    <span className={`font-heading font-black text-5xl tracking-tight ${plan.dark ? 'text-white' : 'text-dark'}`}>
+                    <span className="font-heading font-black text-5xl tracking-tight text-dark">
                       Free
                     </span>
                   ) : (
                     <>
                       <span className={`font-heading font-black text-5xl tracking-tight leading-none ${
-                        plan.highlight ? 'text-brand' : plan.dark ? 'text-white' : 'text-dark'
+                        plan.highlight ? 'text-brand' : 'text-white'
                       }`}>
                         {plan.price}
                       </span>
@@ -190,7 +194,7 @@ export default function Pricing() {
                   {plan.priceNote}
                 </p>
 
-                {/* Tagline */}
+                {/* Tagline + description */}
                 <p className={`text-sm font-body font-semibold mb-1 ${
                   plan.highlight ? 'text-brand' : plan.dark ? 'text-white/80' : 'text-dark/70'
                 }`}>
@@ -204,31 +208,54 @@ export default function Pricing() {
                 <div className={`h-px mb-5 ${plan.dark ? 'bg-white/8' : 'bg-gray-100'}`} />
 
                 {/* Features */}
-                <ul className="flex flex-col gap-3 mb-7">
+                <ul className="flex flex-col gap-3 mb-4">
                   {plan.features.map((f) => (
-                    <li key={f.text} className={`flex items-center gap-2.5 ${!f.included ? 'opacity-35' : ''}`}>
+                    <li key={f} className="flex items-center gap-2.5">
                       <div className={`shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${
-                        f.included
-                          ? plan.highlight
-                            ? 'bg-brand/15'
-                            : plan.dark
-                            ? 'bg-white/12'
-                            : 'bg-dark/8'
-                          : 'bg-transparent'
+                        plan.highlight ? 'bg-brand/15' : plan.dark ? 'bg-white/12' : 'bg-dark/8'
                       }`}>
-                        {f.included
-                          ? <Check size={9} strokeWidth={3} className={plan.highlight ? 'text-brand' : plan.dark ? 'text-white' : 'text-dark/60'} />
-                          : <X size={9} strokeWidth={2.5} className="text-dark/40" />
-                        }
+                        <Check size={9} strokeWidth={3} className={
+                          plan.highlight ? 'text-brand' : plan.dark ? 'text-white' : 'text-dark/60'
+                        } />
                       </div>
                       <span className={`text-[13px] font-body leading-snug ${
                         plan.dark ? 'text-white/65' : 'text-dark/65'
                       }`}>
-                        {f.text}
+                        {f}
+                      </span>
+                    </li>
+                  ))}
+                  {plan.excluded.map((f) => (
+                    <li key={f} className="flex items-center gap-2.5 opacity-30">
+                      <div className="shrink-0 w-4 h-4 rounded-full flex items-center justify-center bg-transparent">
+                        <X size={9} strokeWidth={2.5} className={plan.dark ? 'text-white/60' : 'text-dark/40'} />
+                      </div>
+                      <span className={`text-[13px] font-body leading-snug ${
+                        plan.dark ? 'text-white/65' : 'text-dark/65'
+                      }`}>
+                        {f}
                       </span>
                     </li>
                   ))}
                 </ul>
+
+                {/* Microcopy */}
+                {plan.microcopy && (
+                  <div className="flex flex-col gap-1 mb-5">
+                    {plan.microcopy.map((m) => (
+                      <p key={m} className={`text-[11px] font-body ${
+                        plan.dark ? 'text-white/40' : 'text-brand/70'
+                      }`}>
+                        {m}
+                      </p>
+                    ))}
+                  </div>
+                )}
+
+                {/* Subtext for Free */}
+                {plan.subtext && (
+                  <p className="text-[11px] font-body text-dark/35 mb-5">{plan.subtext}</p>
+                )}
 
                 {/* CTA */}
                 <motion.a
@@ -247,7 +274,7 @@ export default function Pricing() {
                   {plan.cta}
                 </motion.a>
 
-                {/* Below CTA nudge — always rendered to keep button alignment */}
+                {/* Below CTA — always rendered for alignment */}
                 <p className={`text-center text-[11px] font-body mt-3 ${
                   plan.highlight ? 'text-dark/35' : plan.dark ? 'text-white/25' : 'text-dark/35'
                 }`}>
@@ -262,7 +289,18 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* ── Comparison Table — desktop only, cards cover mobile ──── */}
+        {/* ── Trust line ───────────────────────────────────────────── */}
+        <motion.p
+          className="text-center text-dark/45 text-sm font-body mb-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+        >
+          All jobs are handled by vetted, verified professionals — every time.
+        </motion.p>
+
+        {/* ── Comparison Table — desktop only ──────────────────────── */}
         <motion.div
           className="hidden md:block bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden"
           initial={{ opacity: 0, y: 24 }}
@@ -273,7 +311,7 @@ export default function Pricing() {
           {/* Table header */}
           <div className="grid grid-cols-4 gap-0 border-b border-gray-100">
             <div className="p-5">
-              <p className="text-xs text-dark/35 font-body font-semibold uppercase tracking-widest">Features</p>
+              <p className="text-xs text-dark/35 font-body font-semibold uppercase tracking-widest">Feature</p>
             </div>
             {PLANS.map((plan) => (
               <div
@@ -288,7 +326,7 @@ export default function Pricing() {
                   {plan.name.replace('Fasta ', '')}
                 </p>
                 <p className={`text-lg font-heading font-black mt-0.5 ${plan.highlight ? 'text-brand' : 'text-dark'}`}>
-                  {plan.price === '0' ? 'Free' : `${plan.price}`}
+                  {plan.price === '0' ? 'Free' : plan.price}
                   {plan.price !== '0' && <span className="text-xs font-body font-normal text-dark/40 ml-0.5">KSh</span>}
                 </p>
               </div>
@@ -329,8 +367,7 @@ export default function Pricing() {
           transition={{ delay: 0.3 }}
         >
           <p className="text-dark/40 text-sm font-body">
-            All plans include verified professionals, secure M-Pesa payments and in-app tracking.
-            Upgrade or cancel anytime.
+            All plans include secure M-Pesa payments and in-app tracking. Upgrade or cancel anytime.
           </p>
         </motion.div>
 
