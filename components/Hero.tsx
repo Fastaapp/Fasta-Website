@@ -231,9 +231,9 @@ export default function Hero() {
           animate="show"
         >
           {/* Eyebrow */}
-          <motion.div variants={item} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand/40 bg-brand/10 text-brand text-xs font-semibold font-body mb-6 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
-            NOW AVAILABLE IN NAIROBI
+          <motion.div variants={item} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-400/40 bg-amber-400/10 text-amber-400 text-xs font-semibold font-body mb-6 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+            COMING SOON
           </motion.div>
 
           {/* Headline */}
