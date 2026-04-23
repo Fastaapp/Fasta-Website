@@ -122,7 +122,7 @@ function PartnerDashboard() {
 // ─── Fasta Partner Section ────────────────────────────────────────────────────
 export default function FastaPartner() {
   return (
-    <section id="fasta-partner" className="py-24 md:py-32 bg-[#F8F8F9] overflow-hidden">
+    <section id="fasta-partner" className="py-24 md:py-32 bg-[#1E2123] overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
         {/* ── Section label — clearly identifies this as a separate product ── */}
@@ -134,11 +134,11 @@ export default function FastaPartner() {
           transition={{ duration: 0.6 }}
         >
           {/* Distinct treatment — Fasta Partner is its own product */}
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-dark/6 border border-dark/10 mb-6">
-            <div className="w-5 h-5 rounded-md bg-dark flex items-center justify-center shrink-0">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-white/8 border border-white/10 mb-6">
+            <div className="w-5 h-5 rounded-md bg-white/15 flex items-center justify-center shrink-0">
               <Briefcase size={11} className="text-white" />
             </div>
-            <span className="text-dark/60 text-xs font-semibold font-body uppercase tracking-widest">
+            <span className="text-white/50 text-xs font-semibold font-body uppercase tracking-widest">
               <em>Fasta</em> Partner — Separate App
             </span>
           </div>
@@ -155,7 +155,7 @@ export default function FastaPartner() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             {/* Subtle bg glow in charcoal, not brand magenta — reinforces separate identity */}
-            <div className="absolute inset-0 bg-gradient-to-br from-dark/8 to-transparent rounded-3xl blur-2xl scale-90 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-brand/10 to-transparent rounded-3xl blur-2xl scale-90 pointer-events-none" />
             <PartnerDashboard />
           </motion.div>
 
@@ -167,11 +167,11 @@ export default function FastaPartner() {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h2 className="font-heading font-black text-dark text-4xl md:text-5xl lg:text-[52px] tracking-tight leading-[1.05] mb-5">
+            <h2 className="font-heading font-black text-white text-4xl md:text-5xl lg:text-[52px] tracking-tight leading-[1.05] mb-5">
               Built for Kenya's<br />
               <span className="gradient-text">Skilled Workforce.</span>
             </h2>
-            <p className="text-dark/60 text-lg font-body leading-relaxed mb-3">
+            <p className="text-white/55 text-lg font-body leading-relaxed mb-3">
               <em>Fasta</em> Partner is a dedicated app for Fundis and home service experts.
               If you're a plumber, electrician, carpenter or any skilled tradesperson —
               this app is your business in your pocket.
@@ -179,7 +179,7 @@ export default function FastaPartner() {
             {/* Clear separation message */}
             <div className="flex items-center gap-2 mb-8">
               <div className="w-1.5 h-1.5 rounded-full bg-brand shrink-0" />
-              <p className="text-dark/40 text-sm font-body">
+              <p className="text-white/35 text-sm font-body">
                 Download separately from the App Store or Google Play
               </p>
             </div>
@@ -197,12 +197,12 @@ export default function FastaPartner() {
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.09, duration: 0.5 }}
                   >
-                    <div className="shrink-0 w-10 h-10 rounded-xl bg-dark/6 flex items-center justify-center mt-0.5">
-                      <Icon size={18} className="text-dark/60" />
+                    <div className="shrink-0 w-10 h-10 rounded-xl bg-white/8 flex items-center justify-center mt-0.5">
+                      <Icon size={18} className="text-white/50" />
                     </div>
                     <div>
-                      <p className="font-heading font-bold text-dark text-sm mb-0.5">{benefit.title}</p>
-                      <p className="text-dark/50 text-sm font-body leading-relaxed">{benefit.description}</p>
+                      <p className="font-heading font-bold text-white text-sm mb-0.5">{benefit.title}</p>
+                      <p className="text-white/45 text-sm font-body leading-relaxed">{benefit.description}</p>
                     </div>
                   </motion.div>
                 )
@@ -213,7 +213,7 @@ export default function FastaPartner() {
             <div className="flex flex-wrap items-center gap-4">
               <motion.a
                 href="#"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-dark text-white font-semibold font-body rounded-full hover:bg-dark-800 transition-colors shadow-lg shadow-dark/20"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-dark font-semibold font-body rounded-full hover:bg-gray-100 transition-colors shadow-lg shadow-black/20"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -222,7 +222,7 @@ export default function FastaPartner() {
               </motion.a>
               <a
                 href="#"
-                className="inline-flex items-center gap-1.5 text-dark/50 text-sm font-semibold font-body hover:text-brand transition-colors"
+                className="inline-flex items-center gap-1.5 text-white/40 text-sm font-semibold font-body hover:text-brand transition-colors"
               >
                 Learn more
                 <ArrowRight size={14} />

@@ -104,7 +104,7 @@ function Cell({ value }: { value: string | boolean }) {
 // ─── Pricing section ─────────────────────────────────────────────────────────
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-24 md:py-32 bg-[#F8F8F9] relative overflow-hidden">
+    <section id="pricing" className="py-24 md:py-32 bg-white relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-dark/8 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
