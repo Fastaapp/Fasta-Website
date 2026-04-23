@@ -247,17 +247,16 @@ export default function Pricing() {
                   {plan.cta}
                 </motion.a>
 
-                {/* Below CTA nudge for Plus */}
-                {plan.highlight && (
-                  <p className="text-center text-[11px] text-dark/35 font-body mt-3">
-                    Cancel anytime. No commitment.
-                  </p>
-                )}
-                {plan.dark && (
-                  <p className="text-center text-[11px] text-white/25 font-body mt-3">
-                    Includes everything in Plus.
-                  </p>
-                )}
+                {/* Below CTA nudge — always rendered to keep button alignment */}
+                <p className={`text-center text-[11px] font-body mt-3 ${
+                  plan.highlight ? 'text-dark/35' : plan.dark ? 'text-white/25' : 'text-dark/35'
+                }`}>
+                  {plan.highlight
+                    ? 'Cancel anytime. No commitment.'
+                    : plan.dark
+                    ? 'Includes everything in Plus.'
+                    : 'No credit card required.'}
+                </p>
               </div>
             </motion.div>
           ))}
