@@ -260,7 +260,7 @@ export default function Pricing() {
                       ? 'bg-brand text-white hover:bg-brand-dark shadow-lg shadow-brand/25'
                       : plan.dark
                       ? 'bg-white text-dark hover:bg-gray-100'
-                      : 'bg-dark/7 text-dark hover:bg-dark/12'
+                      : 'bg-dark text-white hover:bg-dark-700 shadow-md'
                   }`}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
