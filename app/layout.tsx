@@ -79,7 +79,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-KE" className={`${montserrat.variable} ${poppins.variable}`}>
-      <body className="antialiased font-body">{children}</body>
+      <body className="antialiased font-body pb-16 md:pb-0">{children}</body>
     </html>
   )
 }
