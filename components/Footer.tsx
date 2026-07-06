@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const LINKS = {
   Services: [
@@ -101,12 +102,21 @@ export default function Footer() {
               <ul className="flex flex-col gap-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-white/45 text-sm font-body hover:text-white transition-colors duration-200"
-                    >
-                      {link.label}
-                    </a>
+                    {link.href.startsWith('/') ? (
+                      <Link
+                        href={link.href}
+                        className="text-white/45 text-sm font-body hover:text-white transition-colors duration-200"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-white/45 text-sm font-body hover:text-white transition-colors duration-200"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -143,9 +153,9 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-white/30 text-xs font-body">
           <p>© {new Date().getFullYear()} <em>Fasta</em> Technologies Ltd. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <a href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</a>
-            <a href="/terms" className="hover:text-white/60 transition-colors">Terms of Service</a>
-            <a href="/delete-account" className="hover:text-white/60 transition-colors">Delete Account</a>
+            <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white/60 transition-colors">Terms of Service</Link>
+            <Link href="/delete-account" className="hover:text-white/60 transition-colors">Delete Account</Link>
           </div>
         </div>
 

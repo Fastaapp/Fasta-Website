@@ -20,11 +20,6 @@ export function OrganizationSchema() {
             email: 'support@fastaapp.co',
             availableLanguage: ['English', 'Swahili'],
           },
-          sameAs: [
-            'https://twitter.com/fastaapp',
-            'https://www.instagram.com/fastaapp',
-            'https://www.facebook.com/fastaapp',
-          ],
         }),
       }}
     />

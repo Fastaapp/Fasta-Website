@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 const NAV_LINKS: { label: ReactNode; key: string; href: string }[] = [
@@ -54,11 +55,11 @@ export default function Header() {
         <div className="flex items-center justify-between h-12 md:h-14">
 
           {/* ── Logo ──────────────────────────────────────────────── */}
-          <a href="/" className="flex items-center shrink-0" aria-label="Fasta home">
+          <Link href="/" className="flex items-center shrink-0" aria-label="Fasta home">
             <div className="relative w-28 h-8">
               <Image src="/logo-footer.png" alt="Fasta logo" fill className="object-contain object-left" priority />
             </div>
-          </a>
+          </Link>
 
           {/* ── Desktop Nav ────────────────────────────────────────── */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
@@ -80,27 +81,27 @@ export default function Header() {
                     className="absolute top-full left-0 mt-2 w-48 bg-[#2C3033] border border-white/10 rounded-xl shadow-xl overflow-hidden"
                   >
                     {SERVICE_LINKS.map((s) => (
-                      <a
+                      <Link
                         key={s.href}
                         href={s.href}
                         onClick={() => setServicesOpen(false)}
                         className="block px-4 py-2.5 text-sm text-white/75 hover:text-brand hover:bg-white/5 transition-colors"
                       >
                         {s.label}
-                      </a>
+                      </Link>
                     ))}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.key}
                 href={link.href}
                 className="text-sm font-semibold text-white/80 hover:text-brand transition-colors duration-200"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 

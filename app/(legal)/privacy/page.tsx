@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — Fasta',
-  description: 'How Fasta collects, uses, and protects your personal data.',
+  description: 'Learn how Fasta Technologies Ltd collects, uses, shares, and protects your personal data when you use our home services app in Kenya.',
   alternates: { canonical: 'https://fastaapp.co/privacy' },
 }
 
@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <h1 className="font-heading font-black text-dark text-4xl md:text-5xl tracking-tight mb-3">
         Privacy Policy
       </h1>
-      <p className="text-dark/40 text-sm font-body mb-12">Last updated: 1 July 2025</p>
+      <p className="text-dark/40 text-sm font-body mb-12">Last updated: 6 July 2026</p>
 
       <div className="prose prose-slate max-w-none font-body text-dark/70 leading-relaxed space-y-10">
 

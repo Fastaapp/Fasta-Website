@@ -6,10 +6,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     { url: base, lastModified: now, changeFrequency: 'weekly', priority: 1 },
-    { url: `${base}/services/electrician-kenya`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${base}/services/plumbing-kenya`,    lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${base}/services/hvac-kenya`,        lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${base}/services/handyman-kenya`,    lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/services/electrician-kenya`,  lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/services/plumbing-kenya`,     lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/services/hvac-kenya`,         lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/services/handyman-kenya`,     lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/services/home-services-kenya`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${base}/privacy`,                    lastModified: now, changeFrequency: 'yearly',  priority: 0.4 },
+    { url: `${base}/terms`,                      lastModified: now, changeFrequency: 'yearly',  priority: 0.4 },
+    { url: `${base}/delete-account`,             lastModified: now, changeFrequency: 'yearly',  priority: 0.3 },
   ]
 }

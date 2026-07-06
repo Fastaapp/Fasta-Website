@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Terms of Service — Fasta',
-  description: 'The terms and conditions governing your use of the Fasta app and services.',
+  description: 'Read the terms and conditions that govern your use of the Fasta app and home services platform in Kenya, including bookings, payments, and cancellations.',
   alternates: { canonical: 'https://fastaapp.co/terms' },
 }
 
@@ -12,7 +12,7 @@ export default function TermsPage() {
       <h1 className="font-heading font-black text-dark text-4xl md:text-5xl tracking-tight mb-3">
         Terms of Service
       </h1>
-      <p className="text-dark/40 text-sm font-body mb-12">Last updated: 1 July 2025</p>
+      <p className="text-dark/40 text-sm font-body mb-12">Last updated: 6 July 2026</p>
 
       <div className="prose prose-slate max-w-none font-body text-dark/70 leading-relaxed space-y-10">
 
