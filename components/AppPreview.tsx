@@ -2,190 +2,246 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence, type PanInfo } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Star, CheckCircle, Zap, Wrench, Droplets, Wind } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Droplets, Zap, Wind, Wrench, ShieldCheck, CheckCircle, ArrowRight } from 'lucide-react'
 
-const APP_SERVICES = [
-  { Icon: Droplets, label: 'Plumbing',   hot: false },
-  { Icon: Zap,      label: 'Electrical', hot: true  },
-  { Icon: Wind,     label: 'AC & HVAC',  hot: false },
-  { Icon: Wrench,   label: 'Handyman',   hot: false },
-]
+const BG = '#F2F1ED'
 
-// ─── Screen content components ────────────────────────────────────────────────
-
+// ─── Screen 1: Home ───────────────────────────────────────────────────────────
 function HomeScreen() {
   return (
-    <div className="w-full h-full flex flex-col bg-[#F7F7F8]">
-      <div className="bg-brand px-4 pt-4 pb-8">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <p className="text-white/60 text-[10px] font-body">Good afternoon</p>
-            <p className="text-white font-heading font-bold text-sm">Sarah K.</p>
+    <div className="w-full h-full flex flex-col overflow-hidden" style={{ background: BG }}>
+      {/* Header */}
+      <div className="flex items-center justify-between px-3 pt-2 pb-2 bg-white border-b border-gray-100">
+        <div className="flex items-center gap-1.5">
+          <div className="w-5 h-5 bg-brand rounded flex items-center justify-center shrink-0">
+            <span className="text-white font-bold text-[8px]">F</span>
           </div>
-          <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-            <span className="text-white text-[10px] font-bold">SK</span>
-          </div>
+          <span className="font-heading font-black text-dark text-[11px]">Fasta</span>
         </div>
-        <div className="bg-white/20 rounded-xl px-3 py-2 flex items-center gap-2">
-          <svg className="w-3 h-3 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M6.5 6.5a7.5 7.5 0 1010.65 10.65z" />
-          </svg>
-          <span className="text-white/60 text-[10px] font-body">Search for a service...</span>
+        <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1 bg-dark rounded-full px-2 py-0.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+            <span className="text-white text-[8px] font-bold">PRO</span>
+          </div>
+          <div className="w-6 h-6 rounded-full bg-gray-300 overflow-hidden">
+            <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-500" />
+          </div>
         </div>
       </div>
 
-      <div className="px-4 -mt-4 flex-1">
-        <div className="grid grid-cols-2 gap-2 mb-3">
-          {APP_SERVICES.map(({ Icon, label, hot }) => (
-            <div key={label} className={`relative bg-white rounded-xl p-2.5 flex flex-col items-center gap-1 shadow-sm border ${hot ? 'border-brand/30' : 'border-transparent'}`}>
-              {hot && <div className="absolute -top-1 -right-1 w-3 h-3 bg-brand rounded-full" />}
-              <Icon size={14} className="text-brand" />
-              <span className="text-[8px] text-dark/60 font-body text-center">{label}</span>
+      {/* Greeting */}
+      <div className="px-3 pt-3 pb-2">
+        <p className="text-[8px] font-body text-dark/40 uppercase tracking-widest">Good evening</p>
+        <p className="font-heading font-black text-dark text-[15px] leading-tight">Hi, Sarah</p>
+        <p className="text-[9px] text-dark/50 font-body">Still need something fixed today?</p>
+      </div>
+
+      {/* Hero card */}
+      <div className="mx-3 bg-white rounded-2xl p-3 mb-2 shadow-sm">
+        <div className="w-6 h-0.5 bg-brand rounded mb-2" />
+        <p className="font-heading font-black text-dark text-[13px] leading-tight mb-0.5">Your home, fixed fast.</p>
+        <p className="text-[9px] text-dark/50 font-body mb-3">Trusted pros, when you need them.</p>
+        <button className="w-full bg-brand text-white rounded-xl py-2.5 flex items-center justify-center gap-1.5">
+          <span className="text-[10px] font-bold font-body">Get it fixed</span>
+          <ArrowRight size={10} />
+        </button>
+        <p className="text-center text-[8px] text-dark/35 font-body mt-1.5">Start a request in a few taps.</p>
+      </div>
+
+      {/* Urgent help card */}
+      <div className="mx-3 border border-brand/40 bg-white rounded-2xl p-3 mb-3 flex items-center gap-2">
+        <div className="w-0.5 h-8 bg-brand rounded shrink-0" />
+        <div className="flex-1 min-w-0">
+          <p className="text-[9px] font-bold text-dark font-body leading-tight">Need urgent help?</p>
+          <p className="text-[8px] text-dark/45 font-body leading-tight">FASTA can prioritise dispatch when a fundi is available.</p>
+        </div>
+        <button className="shrink-0 border border-brand text-brand rounded-full px-2 py-1 text-[7px] font-bold font-body">
+          Get help fast
+        </button>
+      </div>
+
+      {/* Why Fasta */}
+      <div className="px-3">
+        <p className="text-[7px] font-body font-semibold text-dark/35 uppercase tracking-widest mb-2">Why Fasta</p>
+        <div className="grid grid-cols-2 gap-2">
+          {[
+            { icon: ShieldCheck, title: 'Vetted fundis', sub: 'Documents reviewed before any job.' },
+            { icon: CheckCircle, title: 'You approve first', sub: 'Job only complete when you confirm it.' },
+          ].map(({ icon: Icon, title, sub }) => (
+            <div key={title} className="bg-white rounded-xl p-2.5 shadow-sm">
+              <div className="w-6 h-6 rounded-lg bg-brand/10 flex items-center justify-center mb-1.5">
+                <Icon size={12} className="text-brand" />
+              </div>
+              <p className="text-[9px] font-bold text-dark font-body leading-tight">{title}</p>
+              <p className="text-[7px] text-dark/45 font-body leading-tight mt-0.5">{sub}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Screen 2: Job Tracking ───────────────────────────────────────────────────
+const STEPS = ['Requested', 'Assigned', 'In progress', 'Review', 'Done']
+const ACTIVE = 2
+
+function TrackingScreen() {
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden" style={{ background: BG }}>
+      {/* Header */}
+      <div className="flex items-center gap-2 px-3 pt-2 pb-2 bg-white border-b border-gray-100">
+        <div className="w-5 h-5 rounded-full bg-gray-100 flex items-center justify-center">
+          <ChevronLeft size={10} className="text-dark" />
+        </div>
+        <p className="font-heading font-bold text-dark text-[11px] mx-auto">FST-000138</p>
+      </div>
+
+      <div className="flex-1 overflow-hidden px-3 pt-3 space-y-2">
+        {/* Status card */}
+        <div className="bg-white rounded-2xl p-3 shadow-sm">
+          <div className="flex items-center justify-between mb-1.5">
+            <p className="text-[7px] font-bold text-dark/40 uppercase tracking-widest">Work in progress</p>
+            <div className="flex items-center gap-1 bg-red-50 border border-red-100 rounded-full px-1.5 py-0.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+              <span className="text-[7px] font-bold text-red-500">LIVE</span>
+            </div>
+          </div>
+          <p className="font-heading font-bold text-dark text-[11px] leading-tight mb-0.5">Your fundi is working on the repair</p>
+          <p className="text-[8px] text-dark/45 font-body mb-3">Completion photos will appear when the work is done.</p>
+
+          {/* Progress bar */}
+          <div className="flex items-center gap-0">
+            {STEPS.map((step, i) => (
+              <div key={step} className="flex items-center flex-1">
+                <div className={`w-2.5 h-2.5 rounded-full border-2 shrink-0 ${
+                  i < ACTIVE ? 'bg-brand border-brand' :
+                  i === ACTIVE ? 'bg-white border-brand' : 'bg-white border-gray-200'
+                }`} />
+                {i < STEPS.length - 1 && (
+                  <div className={`h-0.5 flex-1 ${i < ACTIVE ? 'bg-brand' : 'bg-gray-200'}`} />
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-between mt-1">
+            {STEPS.map((step, i) => (
+              <span key={step} className={`text-[6px] font-body ${i === ACTIVE ? 'text-brand font-bold' : 'text-dark/35'}`}>
+                {step}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Details card */}
+        <div className="bg-white rounded-2xl p-3 shadow-sm">
+          <div className="flex justify-between py-1.5 border-b border-gray-50">
+            <span className="text-[8px] text-dark/40 font-body">Service address</span>
+            <span className="text-[8px] font-semibold text-dark font-body">Westlands, Nairobi</span>
+          </div>
+          <div className="flex justify-between py-1.5">
+            <span className="text-[8px] text-dark/40 font-body">Created</span>
+            <span className="text-[8px] font-semibold text-dark font-body">Today at 09:15</span>
+          </div>
+        </div>
+
+        {/* Alert */}
+        <div className="bg-red-50 border border-red-100 rounded-2xl p-2.5">
+          <p className="text-[8px] font-bold text-brand mb-0.5">Taking longer than expected</p>
+          <p className="text-[7px] text-dark/55 font-body">We've flagged this for review and will keep you posted. You don't need to do anything.</p>
+        </div>
+
+        {/* Fundi card */}
+        <div className="bg-white rounded-2xl p-3 shadow-sm">
+          <p className="text-[7px] font-bold text-dark/35 uppercase tracking-widest mb-2">Your fundi</p>
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-full bg-brand/15 flex items-center justify-center shrink-0">
+              <span className="text-brand text-[9px] font-bold">JM</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-[10px] font-bold text-dark font-body">James M.</p>
+              <div className="flex items-center gap-1 mt-0.5">
+                <span className="text-[7px] text-brand font-body font-semibold">✓ Verified fundi</span>
+                <span className="text-[7px] text-dark/35 font-body">· 4 jobs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ─── Screen 3: Services ───────────────────────────────────────────────────────
+const SERVICES = [
+  { Icon: Droplets, name: 'Plumbing',   desc: 'Leaks, taps, drains & geysers',     price: '1,500' },
+  { Icon: Zap,      name: 'Electrical', desc: 'Sockets, wiring & power faults',     price: '1,500' },
+  { Icon: Wind,     name: 'HVAC',       desc: 'Air-con, fans & ventilation',        price: '2,000' },
+  { Icon: Wrench,   name: 'Handyman',   desc: 'Mounting, fixtures & small repairs', price: '2,500' },
+]
+
+function ServicesScreen() {
+  return (
+    <div className="w-full h-full flex flex-col overflow-hidden" style={{ background: BG }}>
+      {/* Header */}
+      <div className="flex items-center gap-2 px-3 pt-2 pb-2 bg-white border-b border-gray-100">
+        <div className="w-5 h-5 rounded-full bg-gray-100 flex items-center justify-center">
+          <ChevronLeft size={10} className="text-dark" />
+        </div>
+      </div>
+
+      <div className="flex-1 overflow-hidden px-3 pt-3">
+        <p className="text-[7px] font-body text-dark/40 uppercase tracking-widest mb-0.5">Step 1 of 4</p>
+        <p className="font-heading font-black text-dark text-[15px] leading-tight mb-0.5">What needs fixing?</p>
+        <p className="text-[8px] text-dark/50 font-body mb-3">Choose the service you need. We'll guide you from there.</p>
+
+        {/* Service list */}
+        <div className="space-y-1.5 mb-3">
+          {SERVICES.map(({ Icon, name, desc, price }) => (
+            <div key={name} className="bg-white rounded-xl p-2.5 flex items-center gap-2.5 shadow-sm">
+              <div className="w-7 h-7 rounded-lg bg-brand/10 flex items-center justify-center shrink-0">
+                <Icon size={13} className="text-brand" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[9px] font-bold text-dark font-body leading-tight">{name}</p>
+                <p className="text-[7px] text-dark/45 font-body leading-tight">{desc}</p>
+                <p className="text-[7px] text-brand font-semibold font-body mt-0.5">from KES {price}</p>
+              </div>
+              <ChevronLeft size={10} className="text-dark/25 rotate-180 shrink-0" />
             </div>
           ))}
         </div>
 
-        <div className="bg-dark rounded-2xl p-3">
-          <p className="text-white/50 text-[9px] font-body uppercase tracking-wider mb-2">Quick Rebook</p>
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-full bg-brand flex items-center justify-center shrink-0">
-              <span className="text-white text-[9px] font-bold">JM</span>
+        {/* Trust badges */}
+        <div className="flex gap-2 mb-3">
+          {['Every fundi is vetted', 'You approve before completion'].map((t) => (
+            <span key={t} className="text-[6.5px] text-brand font-body font-semibold border border-brand/20 bg-brand/5 rounded-full px-2 py-0.5">
+              {t}
+            </span>
+          ))}
+        </div>
+
+        {/* Steps */}
+        <div className="bg-white rounded-xl p-2.5 space-y-1.5 shadow-sm">
+          {['Choose a service and add photos', 'We match you with a vetted fundi', 'Approve the finished work'].map((s, i) => (
+            <div key={s} className="flex items-center gap-2">
+              <span className="w-4 h-4 rounded-full bg-brand/10 text-brand text-[7px] font-bold flex items-center justify-center shrink-0">{i + 1}</span>
+              <span className="text-[8px] text-dark/60 font-body">{s}</span>
             </div>
-            <div>
-              <p className="text-white text-[10px] font-semibold">James · Plumber</p>
-              <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} size={7} className="text-yellow-400 fill-yellow-400" />)}</div>
-            </div>
-            <button className="ml-auto px-2.5 py-1 bg-brand text-white text-[8px] font-bold rounded-lg font-body">
-              Rebook
-            </button>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
-  )
-}
-
-function TrackingScreen() {
-  return (
-    <div className="w-full h-full flex flex-col bg-[#F7F7F8]">
-      <div className="bg-dark px-4 pt-4 pb-3">
-        <p className="text-white/50 text-[9px] font-body uppercase tracking-wider">Booking #FA-2847</p>
-        <p className="text-white font-heading font-bold text-sm">Electrical Repair</p>
-      </div>
-
-      {/* Fake map */}
-      <div className="flex-1 relative bg-gradient-to-br from-green-50 to-blue-50 overflow-hidden">
-        {[...Array(6)].map((_, i) => (
-          <div key={`h${i}`} className="absolute w-full border-t border-gray-200/60" style={{ top: `${16.67 * (i + 1)}%` }} />
-        ))}
-        {[...Array(6)].map((_, i) => (
-          <div key={`v${i}`} className="absolute h-full border-l border-gray-200/60" style={{ left: `${16.67 * (i + 1)}%` }} />
-        ))}
-        {/* Roads */}
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200" preserveAspectRatio="none">
-          <path d="M 0 100 L 200 100" stroke="#D1D5DB" strokeWidth="4" fill="none" />
-          <path d="M 100 0 L 100 200" stroke="#D1D5DB" strokeWidth="4" fill="none" />
-          <path d="M 50 80 Q 100 60 150 80" stroke="#E5E7EB" strokeWidth="3" fill="none" />
-          <path d="M 40 130 Q 100 140 160 120" stroke="#E5E7EB" strokeWidth="3" fill="none" />
-          {/* Route */}
-          <path d="M 55 155 Q 80 110 130 65" stroke="#E05535" strokeWidth="3" fill="none" strokeDasharray="6 3" />
-        </svg>
-        {/* Home pin */}
-        <div className="absolute right-8 top-10 flex flex-col items-center">
-          <div className="w-8 h-8 bg-dark rounded-full flex items-center justify-center shadow-lg">
-            <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-            </svg>
-          </div>
-        </div>
-        {/* Pro (animated) */}
-        <motion.div
-          className="absolute left-8 bottom-12 flex flex-col items-center"
-          animate={{ x: [0, 24, 50], y: [0, -20, -45] }}
-          transition={{ repeat: Infinity, duration: 5, ease: 'linear' }}
-        >
-          <div className="w-8 h-8 bg-brand rounded-full flex items-center justify-center shadow-lg ring-2 ring-white">
-            <span className="text-white text-xs font-bold">K</span>
-          </div>
-          <div className="w-2 h-2 bg-brand rounded-full mt-0.5" />
-        </motion.div>
-      </div>
-
-      {/* Bottom card */}
-      <div className="bg-white p-4 border-t border-gray-100">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-brand flex items-center justify-center shrink-0">
-            <span className="text-white text-xs font-bold">KO</span>
-          </div>
-          <div className="flex-1">
-            <div className="flex items-center gap-1.5">
-              <p className="text-dark font-semibold text-xs">Kevin Omondi</p>
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-            </div>
-            <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} size={8} className="text-yellow-400 fill-yellow-400" />)}</div>
-          </div>
-          <div className="text-right">
-            <p className="text-brand font-bold text-sm">~6 min</p>
-            <p className="text-dark/40 text-[9px] font-body">arriving</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function CompleteScreen() {
-  return (
-    <div className="w-full h-full flex flex-col items-center justify-center bg-[#F7F7F8] p-5">
-      <motion.div
-        className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-4"
-        animate={{ scale: [0.95, 1.05, 1] }}
-        transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-      >
-        <CheckCircle size={40} className="text-green-500" />
-      </motion.div>
-
-      <p className="font-heading font-black text-dark text-xl mb-1">All done!</p>
-      <p className="text-dark/50 text-xs font-body mb-5 text-center">Electrical repair completed successfully</p>
-
-      <div className="w-full bg-white rounded-2xl p-4 shadow-sm border border-gray-100 mb-4">
-        {[
-          ['Service',  'Electrical Repair'],
-          ['Pro',      'Kevin Omondi'],
-          ['Duration', '45 mins'],
-          ['Total',    'KSh 1,200'],
-        ].map(([label, value]) => (
-          <div key={label} className="flex justify-between py-1.5 border-b border-gray-50 last:border-0">
-            <span className="text-dark/40 text-[10px] font-body">{label}</span>
-            <span className={`text-[10px] font-semibold font-body ${label === 'Total' ? 'text-brand' : 'text-dark'}`}>{value}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Rate */}
-      <p className="text-dark/60 text-[10px] font-body mb-2">How was Kevin?</p>
-      <div className="flex gap-2 mb-4">
-        {[...Array(5)].map((_, i) => (
-          <motion.div key={i} whileHover={{ scale: 1.3 }}>
-            <Star size={22} className="text-yellow-400 fill-yellow-400 cursor-pointer" />
-          </motion.div>
-        ))}
-      </div>
-
-      <button className="w-full py-3 bg-brand text-white text-xs font-bold rounded-xl font-body shadow-lg shadow-brand/30">
-        Pay via M-Pesa · KSh 1,200
-      </button>
     </div>
   )
 }
 
 const SCREENS = [
-  { title: 'Browse & Book', subtitle: 'Pick a service in seconds', component: HomeScreen },
-  { title: 'Live Tracking', subtitle: 'Watch your pro arrive', component: TrackingScreen },
-  { title: 'Job Complete', subtitle: 'Pay & rate instantly', component: CompleteScreen },
+  { title: 'Home',          subtitle: 'Your dashboard at a glance',   component: HomeScreen     },
+  { title: 'Live Tracking', subtitle: 'Follow your job in real time', component: TrackingScreen },
+  { title: 'Book a Service',subtitle: 'Pick what needs fixing',       component: ServicesScreen },
 ]
 
-// ─── App Preview ─────────────────────────────────────────────────────────────
+// ─── App Preview section ──────────────────────────────────────────────────────
 export default function AppPreview() {
   const [current, setCurrent] = useState(0)
 
@@ -282,7 +338,7 @@ export default function AppPreview() {
                 <div className="absolute -left-[3px] top-32 w-[3px] h-12 bg-[#2C2F32] rounded-l-sm" />
                 <div className="absolute -right-[3px] top-28 w-[3px] h-10 bg-[#2C2F32] rounded-r-sm" />
 
-                <div className="w-full h-full bg-[#F7F7F8] rounded-[42px] overflow-hidden flex flex-col">
+                <div className="w-full h-full bg-[#F2F1ED] rounded-[42px] overflow-hidden flex flex-col">
                   {/* Dynamic island */}
                   <div className="flex justify-center pt-3 shrink-0">
                     <div className="w-24 h-7 bg-[#1A1C1E] rounded-full" />

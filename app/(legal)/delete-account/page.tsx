@@ -11,7 +11,7 @@ const STEPS = [
   {
     icon: Mail,
     title: 'Submit your request',
-    body: 'Email us at privacy@fastaapp.co from the email address linked to your Fasta account. Include your registered phone number in the email.',
+    body: 'Email us at support@fastaapp.co from the email address linked to your Fasta account. Include your registered phone number in the email.',
   },
   {
     icon: ShieldCheck,
@@ -95,7 +95,7 @@ export default function DeleteAccountPage() {
 
       {/* CTA */}
       <a
-        href="mailto:privacy@fastaapp.co?subject=Account%20Deletion%20Request&body=Hi%20Fasta%20team%2C%0A%0AI%20would%20like%20to%20request%20the%20deletion%20of%20my%20account.%0A%0ARegistered%20phone%20number%3A%20%5Byour%20number%5D%0ARegistered%20email%3A%20%5Byour%20email%5D%0A%0AThank%20you."
+        href="mailto:support@fastaapp.co?subject=Account%20Deletion%20Request&body=Hi%20Fasta%20team%2C%0A%0AI%20would%20like%20to%20request%20the%20deletion%20of%20my%20account.%0A%0ARegistered%20phone%20number%3A%20%5Byour%20number%5D%0ARegistered%20email%3A%20%5Byour%20email%5D%0A%0AThank%20you."
         className="inline-flex items-center gap-2.5 bg-dark text-white font-body font-bold text-sm px-6 py-4 rounded-2xl hover:bg-dark/90 transition-colors"
       >
         <Mail size={16} />

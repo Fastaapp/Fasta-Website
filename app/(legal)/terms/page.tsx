@@ -134,7 +134,7 @@ export default function TermsPage() {
           <p>
             Fasta Technologies Ltd<br />
             Nairobi, Kenya<br />
-            Email: <a href="mailto:legal@fastaapp.co" className="text-brand underline">legal@fastaapp.co</a>
+            Email: <a href="mailto:support@fastaapp.co" className="text-brand underline">support@fastaapp.co</a>
           </p>
         </section>
 

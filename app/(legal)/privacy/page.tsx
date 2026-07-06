@@ -25,7 +25,7 @@ export default function PrivacyPage() {
             personal information when you use our services.
           </p>
           <p className="mt-3">
-            For questions, contact us at: <a href="mailto:privacy@fastaapp.co" className="text-brand underline">privacy@fastaapp.co</a>
+            For questions, contact us at: <a href="mailto:support@fastaapp.co" className="text-brand underline">support@fastaapp.co</a>
           </p>
         </section>
 
@@ -86,7 +86,7 @@ export default function PrivacyPage() {
           </ul>
           <p className="mt-3">
             To exercise your rights, visit <a href="/delete-account" className="text-brand underline">fastaapp.co/delete-account</a> or
-            email <a href="mailto:privacy@fastaapp.co" className="text-brand underline">privacy@fastaapp.co</a>.
+            email <a href="mailto:support@fastaapp.co" className="text-brand underline">support@fastaapp.co</a>.
           </p>
         </section>
 
@@ -122,7 +122,7 @@ export default function PrivacyPage() {
           <p>
             Fasta Technologies Ltd<br />
             Nairobi, Kenya<br />
-            Email: <a href="mailto:privacy@fastaapp.co" className="text-brand underline">privacy@fastaapp.co</a>
+            Email: <a href="mailto:support@fastaapp.co" className="text-brand underline">support@fastaapp.co</a>
           </p>
         </section>
 

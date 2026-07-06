@@ -1,7 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Star, CheckCircle, Zap, Wrench, Droplets, Wind } from 'lucide-react'
+import { Star, CheckCircle, Zap, Wrench, Droplets, Wind, ShieldCheck } from 'lucide-react'
 
 const PHONE_SERVICES = [
   { Icon: Droplets, label: 'Plumbing'   },
@@ -80,85 +81,90 @@ function PhoneMockup() {
         <div className="absolute -right-[3px] top-28 w-[3px] h-10 bg-[#2C2F32] rounded-r-sm" />
 
         {/* Screen */}
-        <div className="w-full h-full bg-[#F7F7F8] rounded-[40px] overflow-hidden flex flex-col">
+        <div className="w-full h-full bg-[#F2F1ED] rounded-[40px] overflow-hidden flex flex-col">
           {/* Dynamic island */}
-          <div className="flex justify-center pt-3 pb-1">
+          <div className="flex justify-center pt-3 pb-1 shrink-0">
             <div className="w-24 h-7 bg-[#1A1C1E] rounded-full" />
           </div>
 
           {/* App Header */}
-          <div className="px-4 pt-2 pb-5" style={{ background: '#E05535' }}>
-            <div className="flex items-center justify-between mb-3">
-              <div>
-                <p className="text-white/70 text-[10px] font-body">Good morning</p>
-                <p className="text-white font-heading font-bold text-sm">James M.</p>
+          <div className="flex items-center justify-between px-3 py-2 bg-white border-b border-gray-100 shrink-0">
+            <div className="flex items-center gap-1.5">
+              <div className="relative w-5 h-5 shrink-0">
+                <Image src="/logo-icon.svg" alt="Fasta" fill className="object-contain" />
               </div>
-              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
-                <span className="text-white text-xs font-bold">JM</span>
-              </div>
+              <span className="font-heading font-black text-dark text-[11px]">Fasta</span>
             </div>
-            {/* Search bar */}
-            <div className="bg-white/20 rounded-xl px-3 py-2 flex items-center gap-2">
-              <svg className="w-3.5 h-3.5 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 6.5 6.5a7.5 7.5 0 0 0 10.65 10.65z" />
-              </svg>
-              <span className="text-white/60 text-[10px] font-body">What do you need fixed?</span>
+            <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1 bg-dark rounded-full px-2 py-0.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+                <span className="text-white text-[7px] font-bold">PRO</span>
+              </div>
+              <div className="w-5 h-5 rounded-full bg-gradient-to-br from-gray-300 to-gray-400" />
             </div>
           </div>
 
-          {/* Services Grid */}
-          <div className="px-4 pt-3 pb-2 flex-1 overflow-hidden">
-            <p className="text-[10px] text-dark/50 font-semibold font-body mb-2.5 uppercase tracking-wider">Popular Services</p>
-            <div className="grid grid-cols-2 gap-2 mb-3">
-              {PHONE_SERVICES.map(({ Icon, label }) => (
-                <div key={label} className="bg-white rounded-xl p-2 flex flex-col items-center gap-1 shadow-sm border border-gray-100">
-                  <Icon size={14} className="text-brand" />
-                  <span className="text-[8px] text-dark/60 font-medium font-body text-center leading-tight">{label}</span>
+          {/* Greeting */}
+          <div className="px-3 pt-2.5 pb-1.5 shrink-0">
+            <p className="text-[7px] font-body text-dark/40 uppercase tracking-widest">Good evening</p>
+            <p className="font-heading font-black text-dark text-[13px] leading-tight">Hi, Sarah</p>
+            <p className="text-[8px] text-dark/50 font-body">Still need something fixed today?</p>
+          </div>
+
+          {/* Hero card */}
+          <div className="mx-3 bg-white rounded-2xl p-3 mb-2 shadow-sm shrink-0">
+            <div className="w-5 h-0.5 bg-brand rounded mb-1.5" />
+            <p className="font-heading font-black text-dark text-[11px] leading-tight mb-0.5">Your home, fixed fast.</p>
+            <p className="text-[8px] text-dark/50 font-body mb-2">Trusted pros, when you need them.</p>
+            <div className="w-full bg-brand text-white rounded-xl py-2 flex items-center justify-center gap-1">
+              <span className="text-[9px] font-bold font-body">Get it fixed</span>
+              <span className="text-[9px]">→</span>
+            </div>
+            <p className="text-center text-[7px] text-dark/35 font-body mt-1">Start a request in a few taps.</p>
+          </div>
+
+          {/* Urgent help */}
+          <div className="mx-3 border border-brand/40 bg-white rounded-2xl px-2.5 py-2 mb-2 flex items-center gap-2 shrink-0">
+            <div className="w-0.5 h-6 bg-brand rounded shrink-0" />
+            <div className="flex-1 min-w-0">
+              <p className="text-[8px] font-bold text-dark font-body">Need urgent help?</p>
+              <p className="text-[7px] text-dark/45 font-body leading-tight">FASTA can prioritise dispatch when a fundi is available.</p>
+            </div>
+            <div className="shrink-0 border border-brand text-brand rounded-full px-1.5 py-0.5 text-[6px] font-bold font-body">
+              Get help fast
+            </div>
+          </div>
+
+          {/* Why Fasta */}
+          <div className="px-3 shrink-0">
+            <p className="text-[6px] font-body font-semibold text-dark/35 uppercase tracking-widest mb-1.5">Why Fasta</p>
+            <div className="grid grid-cols-2 gap-1.5">
+              {[
+                { Icon: ShieldCheck, title: 'Vetted fundis',    sub: 'Documents reviewed before any job.' },
+                { Icon: CheckCircle, title: 'You approve first', sub: 'Job only complete when you confirm it.' },
+              ].map(({ Icon, title, sub }) => (
+                <div key={title} className="bg-white rounded-xl p-2 shadow-sm">
+                  <div className="w-5 h-5 rounded-lg bg-brand/10 flex items-center justify-center mb-1">
+                    <Icon size={10} className="text-brand" />
+                  </div>
+                  <p className="text-[8px] font-bold text-dark font-body leading-tight">{title}</p>
+                  <p className="text-[6px] text-dark/45 font-body leading-tight mt-0.5">{sub}</p>
                 </div>
               ))}
-            </div>
-
-            {/* Active booking card */}
-            <div className="bg-dark rounded-2xl p-3">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-white text-[10px] font-bold font-body">Active Pro</span>
-                <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-green-400 text-[8px] font-body">On the way</span>
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center shrink-0" style={{ background: '#E05535' }}>
-                  <span className="text-white text-[10px] font-bold">KO</span>
-                </div>
-                <div>
-                  <p className="text-white text-[10px] font-semibold font-body">Kevin O.</p>
-                  <div className="flex items-center gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={7} className="text-yellow-400 fill-yellow-400" />
-                    ))}
-                    <span className="text-white/50 text-[8px] ml-0.5 font-body">(128)</span>
-                  </div>
-                </div>
-                <div className="ml-auto text-right">
-                  <p className="text-brand text-[10px] font-bold font-body">~8 min</p>
-                  <p className="text-white/40 text-[8px] font-body">ETA</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Floating badges around phone */}
-      <FloatingBadge delay={0} className="hidden sm:flex -left-14 top-16 md:-left-20">
+      <FloatingBadge delay={0} className="hidden sm:flex -left-14 top-16 md:-left-20 !bg-[#1E2123] !border-white/10 border">
         <div className="flex items-center gap-1.5">
           <CheckCircle size={12} className="text-green-400" />
           <span>Verified Pro</span>
         </div>
       </FloatingBadge>
 
-      <FloatingBadge delay={1.5} className="hidden sm:flex -right-10 top-28 md:-right-16">
+      <FloatingBadge delay={1.5} className="hidden sm:flex -right-10 top-28 md:-right-16 !bg-[#1E2123] !border-white/10 border">
         <div className="flex items-center gap-1.5">
           <Star size={11} className="text-yellow-400 fill-yellow-400" />
           <span>4.9 Rating</span>
