@@ -17,7 +17,7 @@ const LINKS = {
     { label: 'Help Center',   href: '#' },
     { label: 'Trust & Safety',href: '#trust' },
     { label: 'Contact Us',    href: '#' },
-    { label: 'Privacy Policy',href: '#' },
+    { label: 'Privacy Policy',href: '/privacy' },
   ],
 }
 
@@ -143,9 +143,9 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-white/30 text-xs font-body">
           <p>© {new Date().getFullYear()} <em>Fasta</em> Technologies Ltd. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-white/60 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white/60 transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white/60 transition-colors">Cookie Policy</a>
+            <a href="/privacy" className="hover:text-white/60 transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white/60 transition-colors">Terms of Service</a>
+            <a href="/delete-account" className="hover:text-white/60 transition-colors">Delete Account</a>
           </div>
         </div>
 
