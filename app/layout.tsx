@@ -60,6 +60,7 @@ export const metadata: Metadata = {
     title: 'Fasta – On-Demand Home Services in Kenya',
     description:
       'Find trusted electricians, plumbers, HVAC technicians and handymen in Kenya. Book verified pros in minutes.',
+    images: [{ url: '/api/og', width: 1200, height: 630, alt: 'Fasta – Home Services Kenya' }],
   },
   twitter: {
     card: 'summary_large_image',
@@ -67,6 +68,7 @@ export const metadata: Metadata = {
     creator: '@fastaapp',
     title: 'Fasta – On-Demand Home Services in Kenya',
     description: 'Find trusted home service professionals in Kenya. Book in minutes.',
+    images: ['/api/og'],
   },
   appLinks: {
     ios: { url: 'https://apps.apple.com/app/fasta', app_store_id: 'fasta' },

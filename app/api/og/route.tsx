@@ -1,9 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const runtime = 'nodejs'
-export const alt = 'Fasta – On-Demand Home Services in Kenya'
-export const size = { width: 1200, height: 630 }
-export const contentType = 'image/png'
+export const runtime = 'edge'
 
 async function loadFont(family: string, weight: number): Promise<ArrayBuffer> {
   const css = await fetch(
@@ -20,7 +17,7 @@ async function loadFont(family: string, weight: number): Promise<ArrayBuffer> {
   return fetch(url).then((r) => r.arrayBuffer())
 }
 
-export default async function Image() {
+export async function GET() {
   const [montserrat900, poppins400, poppins600] = await Promise.all([
     loadFont('Montserrat', 900),
     loadFont('Poppins', 400),
@@ -86,15 +83,7 @@ export default async function Image() {
           <div style={{ width: 5, background: B, margin: '24px 0', borderRadius: '0 3px 3px 0', flexShrink: 0 }} />
 
           {/* Left content */}
-          <div
-            style={{
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              padding: '40px 32px 0 48px',
-            }}
-          >
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '40px 32px 0 48px' }}>
             {/* COMING SOON pill */}
             <div
               style={{
@@ -117,22 +106,10 @@ export default async function Image() {
 
             {/* Logo */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://fastaapp.co/logo-footer.png"
-              alt="Fasta"
-              style={{ height: 72, marginBottom: 20 }}
-            />
+            <img src="https://fastaapp.co/logo-footer.png" alt="Fasta" style={{ height: 72, marginBottom: 20 }} />
 
             {/* Tagline */}
-            <div
-              style={{
-                fontFamily: 'Poppins',
-                fontSize: 26,
-                color: 'rgba(255,255,255,0.48)',
-                marginBottom: 24,
-                display: 'flex',
-              }}
-            >
+            <div style={{ fontFamily: 'Poppins', fontSize: 26, color: 'rgba(255,255,255,0.48)', marginBottom: 24, display: 'flex' }}>
               Kenya's fastest on-demand home services
             </div>
 
@@ -167,112 +144,35 @@ export default async function Image() {
           </div>
 
           {/* Right: Phone mockup */}
-          <div
-            style={{
-              width: 290,
-              flexShrink: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: '24px 40px 24px 16px',
-            }}
-          >
-            <div
-              style={{
-                width: '100%',
-                background: '#1A1C1E',
-                borderRadius: 44,
-                padding: 4,
-                border: '1.5px solid rgba(255,255,255,0.12)',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              {/* Dynamic island */}
+          <div style={{ width: 290, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px 40px 24px 16px' }}>
+            <div style={{ width: '100%', background: '#1A1C1E', borderRadius: 44, padding: 4, border: '1.5px solid rgba(255,255,255,0.12)', display: 'flex', flexDirection: 'column' }}>
               <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0 4px' }}>
                 <div style={{ width: 80, height: 20, background: '#0D0F11', borderRadius: 100 }} />
               </div>
-              {/* Screen */}
-              <div
-                style={{
-                  background: '#F2F1ED',
-                  borderRadius: 38,
-                  overflow: 'hidden',
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
+              <div style={{ background: '#F2F1ED', borderRadius: 38, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
                 {/* App bar */}
-                <div
-                  style={{
-                    background: W,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    padding: '10px 14px',
-                    borderBottom: '1px solid #f0f0f0',
-                  }}
-                >
+                <div style={{ background: W, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', borderBottom: '1px solid #f0f0f0' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                     <div style={{ width: 16, height: 16, borderRadius: '50%', background: B, flexShrink: 0 }} />
                     <span style={{ fontFamily: 'Montserrat', fontSize: 10, fontWeight: 900, color: D }}>Fasta</span>
                   </div>
-                  <div
-                    style={{
-                      background: D,
-                      borderRadius: 100,
-                      padding: '2px 8px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 4,
-                    }}
-                  >
+                  <div style={{ background: D, borderRadius: 100, padding: '2px 8px', display: 'flex', alignItems: 'center', gap: 4 }}>
                     <div style={{ width: 5, height: 5, borderRadius: '50%', background: B }} />
                     <span style={{ fontFamily: 'Poppins', fontSize: 7, fontWeight: 600, color: W }}>PRO</span>
                   </div>
                 </div>
-
                 {/* Content */}
                 <div style={{ padding: '12px 12px 8px', display: 'flex', flexDirection: 'column' }}>
-                  <span style={{ fontFamily: 'Poppins', fontSize: 7, color: 'rgba(44,48,51,0.4)', marginBottom: 2, letterSpacing: 1 }}>
-                    GOOD EVENING
-                  </span>
-                  <span style={{ fontFamily: 'Montserrat', fontSize: 13, fontWeight: 900, color: D, marginBottom: 10 }}>
-                    Hi, Sarah
-                  </span>
-
-                  {/* Hero card */}
-                  <div
-                    style={{
-                      background: W,
-                      borderRadius: 14,
-                      padding: 12,
-                      marginBottom: 8,
-                      display: 'flex',
-                      flexDirection: 'column',
-                    }}
-                  >
+                  <span style={{ fontFamily: 'Poppins', fontSize: 7, color: 'rgba(44,48,51,0.4)', marginBottom: 2, letterSpacing: 1 }}>GOOD EVENING</span>
+                  <span style={{ fontFamily: 'Montserrat', fontSize: 13, fontWeight: 900, color: D, marginBottom: 10 }}>Hi, Sarah</span>
+                  <div style={{ background: W, borderRadius: 14, padding: 12, marginBottom: 8, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ width: 28, height: 3, background: B, borderRadius: 2, marginBottom: 8 }} />
-                    <span style={{ fontFamily: 'Montserrat', fontSize: 11, fontWeight: 900, color: D, marginBottom: 5 }}>
-                      Your home, fixed fast.
-                    </span>
-                    <span style={{ fontFamily: 'Poppins', fontSize: 8, color: 'rgba(44,48,51,0.45)', marginBottom: 9 }}>
-                      Trusted pros, when you need them.
-                    </span>
-                    <div
-                      style={{
-                        background: B,
-                        borderRadius: 10,
-                        padding: '7px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                      }}
-                    >
+                    <span style={{ fontFamily: 'Montserrat', fontSize: 11, fontWeight: 900, color: D, marginBottom: 5 }}>Your home, fixed fast.</span>
+                    <span style={{ fontFamily: 'Poppins', fontSize: 8, color: 'rgba(44,48,51,0.45)', marginBottom: 9 }}>Trusted pros, when you need them.</span>
+                    <div style={{ background: B, borderRadius: 10, padding: '7px', display: 'flex', justifyContent: 'center' }}>
                       <span style={{ fontFamily: 'Poppins', fontSize: 9, fontWeight: 600, color: W }}>Get it fixed →</span>
                     </div>
                   </div>
-
-                  {/* Services 2×2 */}
                   <div style={{ display: 'flex', gap: 6 }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 6, flex: 1 }}>
                       <Svc name="Plumbing" price="KES 1,500" />
@@ -284,8 +184,6 @@ export default async function Image() {
                     </div>
                   </div>
                 </div>
-
-                {/* Home indicator */}
                 <div style={{ display: 'flex', justifyContent: 'center', padding: '8px 0 10px' }}>
                   <div style={{ width: 48, height: 4, background: 'rgba(44,48,51,0.2)', borderRadius: 2 }} />
                 </div>
@@ -294,17 +192,8 @@ export default async function Image() {
           </div>
         </div>
 
-        {/* Footer bar */}
-        <div
-          style={{
-            height: 68,
-            borderTop: '1px solid rgba(255,255,255,0.07)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '0 48px',
-          }}
-        >
+        {/* Footer */}
+        <div style={{ height: 68, borderTop: '1px solid rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 48px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{ width: 8, height: 8, borderRadius: '50%', background: B }} />
             <span style={{ fontFamily: 'Poppins', fontSize: 16, color: 'rgba(255,255,255,0.42)' }}>fastaapp.co</span>
