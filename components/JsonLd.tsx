@@ -7,7 +7,7 @@ export function OrganizationSchema() {
           '@context': 'https://schema.org',
           '@type': 'Organization',
           name: 'Fasta',
-          legalName: 'Fasta Technologies Ltd',
+          legalName: 'FASTA APP GLOBAL LIMITED',
           url: 'https://fastaapp.co',
           logo: 'https://fastaapp.co/logo.png',
           description: 'On-demand home services platform connecting Kenyans with verified plumbers, electricians, HVAC technicians and handymen.',
@@ -41,12 +41,6 @@ export function MobileApplicationSchema() {
             '@type': 'Offer',
             price: '0',
             priceCurrency: 'KES',
-          },
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            ratingCount: '1200',
-            bestRating: '5',
           },
           description: 'Book verified home service professionals in Kenya in minutes. Plumbers, electricians, HVAC technicians and handymen on demand.',
           url: 'https://fastaapp.co',
@@ -89,7 +83,7 @@ export function LocalBusinessSchema() {
             { '@type': 'Country', name: 'Kenya' },
           ],
           priceRange: 'KES',
-          openingHours: 'Mo-Su 00:00-24:00',
+          openingHours: 'Mo-Su 08:00-20:00',
         }),
       }}
     />
@@ -112,15 +106,15 @@ export function HomepageFaqSchema() {
     },
     {
       question: 'How does Fasta verify its professionals?',
-      answer: 'Every Fasta professional goes through background checks, ID verification, and skills assessment before they can accept jobs on the platform.',
+      answer: 'Every Fasta professional goes through ID verification, police clearance checks, and trade registration review before they can accept jobs on the platform.',
     },
     {
       question: 'How do I pay for services on Fasta?',
-      answer: 'Pay securely via M-Pesa or card through the Fasta app. No cash handling — payments are fully encrypted and processed in-app.',
+      answer: 'Pay securely via M-Pesa through the Fasta app. No cash handling — payment is held and only released to the professional after you approve the completed job.',
     },
     {
       question: 'How quickly can I get a professional?',
-      answer: 'Most Fasta jobs are matched within 8 minutes. You can track your professional in real-time on the app.',
+      answer: 'Fasta matches you with the nearest available verified professional and lets you track them in real-time on the app.',
     },
   ]
 

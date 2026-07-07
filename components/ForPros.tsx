@@ -16,8 +16,8 @@ const BENEFITS = [
   },
   {
     icon: Banknote,
-    title: 'Same-Day Payments',
-    description: 'Get paid directly to M-Pesa immediately after completing a job. No waiting periods, no paperwork.',
+    title: 'Fast M-Pesa Payouts',
+    description: 'Get paid to M-Pesa within 24 hours of the customer approving your completed job. No chasing invoices.',
   },
   {
     icon: ShieldCheck,
@@ -104,7 +104,7 @@ function PartnerDashboard() {
         transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
       >
         <Banknote size={11} />
-        Paid instantly
+        Paid within 24h
       </motion.div>
 
       <motion.div
@@ -115,6 +115,10 @@ function PartnerDashboard() {
         <Briefcase size={11} />
         3 jobs nearby
       </motion.div>
+
+      <p className="text-center text-white/20 text-[10px] font-body mt-6 tracking-wide">
+        Illustration only — figures are not real data
+      </p>
     </div>
   )
 }
@@ -173,7 +177,7 @@ export default function FastaPartner() {
             </h2>
             <p className="text-white/55 text-lg font-body leading-relaxed mb-3">
               <em>Fasta</em> Partner is a dedicated app for Fundis and home service experts.
-              If you're a plumber, electrician, carpenter or any skilled tradesperson —
+              If you're a plumber, electrician, HVAC technician or handyman —
               this app is your business in your pocket.
             </p>
             {/* Clear separation message */}
@@ -211,20 +215,15 @@ export default function FastaPartner() {
 
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-4">
-              <motion.a
-                href="#"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-dark font-semibold font-body rounded-full hover:bg-gray-100 transition-colors shadow-lg shadow-black/20"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
+              <div className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/15 text-white/50 font-semibold font-body rounded-full cursor-default border border-white/10">
                 <Download size={15} />
-                Download <em>Fasta</em> Partner
-              </motion.a>
+                <em>Fasta</em> Partner — Coming soon
+              </div>
               <a
-                href="#"
+                href="/partner-terms"
                 className="inline-flex items-center gap-1.5 text-white/40 text-sm font-semibold font-body hover:text-brand transition-colors"
               >
-                Learn more
+                Partner terms
                 <ArrowRight size={14} />
               </a>
             </div>

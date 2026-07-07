@@ -3,23 +3,20 @@ import { ImageResponse } from 'next/og'
 export const runtime = 'edge'
 
 async function loadFont(family: string, weight: number): Promise<ArrayBuffer> {
+  // Use an old User-Agent so Google Fonts returns TTF (Satori doesn't support woff2)
   const css = await fetch(
     `https://fonts.googleapis.com/css2?family=${family.replace(' ', '+')}:wght@${weight}&display=swap`,
-    {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-      },
-    }
+    { headers: { 'User-Agent': 'curl/7.64.1' } }
   ).then((r) => r.text())
-  const url = css.match(/src: url\((.+?\.woff2)\)/)?.[1]
-  if (!url) throw new Error(`Cannot find woff2 for ${family} ${weight}`)
+  const url = css.match(/src: url\((.+?)\)/)?.[1]
+  if (!url) throw new Error(`Cannot find font URL for ${family} ${weight}`)
   return fetch(url).then((r) => r.arrayBuffer())
 }
 
 export async function GET() {
-  const [montserrat900, poppins400, poppins600] = await Promise.all([
+  const [montserrat900, montserrat700, poppins400, poppins600] = await Promise.all([
     loadFont('Montserrat', 900),
+    loadFont('Montserrat', 700),
     loadFont('Poppins', 400),
     loadFont('Poppins', 600),
   ])
@@ -95,7 +92,7 @@ export async function GET() {
                 borderRadius: 100,
                 padding: '6px 18px 6px 12px',
                 marginBottom: 28,
-                width: 'fit-content',
+                alignSelf: 'flex-start',
               }}
             >
               <div style={{ width: 8, height: 8, borderRadius: '50%', background: B, flexShrink: 0 }} />
@@ -124,68 +121,91 @@ export async function GET() {
               <Chip label="Handyman" />
             </div>
 
-            {/* Stats */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontFamily: 'Montserrat', fontSize: 38, fontWeight: 900, color: W, lineHeight: '1' }}>50k+</span>
-                <span style={{ fontFamily: 'Poppins', fontSize: 13, color: 'rgba(255,255,255,0.36)', marginTop: 4 }}>Downloads</span>
-              </div>
-              <div style={{ width: 1, height: 44, background: 'rgba(255,255,255,0.12)' }} />
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontFamily: 'Montserrat', fontSize: 38, fontWeight: 900, color: W, lineHeight: '1' }}>4.9</span>
-                <span style={{ fontFamily: 'Poppins', fontSize: 13, color: 'rgba(255,255,255,0.36)', marginTop: 4 }}>App rating</span>
-              </div>
-              <div style={{ width: 1, height: 44, background: 'rgba(255,255,255,0.12)' }} />
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <span style={{ fontFamily: 'Montserrat', fontSize: 38, fontWeight: 900, color: B, lineHeight: '1' }}>8 min</span>
-                <span style={{ fontFamily: 'Poppins', fontSize: 13, color: 'rgba(255,255,255,0.36)', marginTop: 4 }}>Avg match time</span>
-              </div>
+            {/* Launch callout */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+              <div style={{ width: 6, height: 6, borderRadius: '50%', background: B, flexShrink: 0 }} />
+              <span style={{ fontFamily: 'Poppins', fontSize: 16, color: 'rgba(255,255,255,0.45)' }}>
+                Launching soon in Nairobi — join the waitlist.
+              </span>
             </div>
           </div>
 
           {/* Right: Phone mockup */}
           <div style={{ width: 290, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px 40px 24px 16px' }}>
             <div style={{ width: '100%', background: '#1A1C1E', borderRadius: 44, padding: 4, border: '1.5px solid rgba(255,255,255,0.12)', display: 'flex', flexDirection: 'column' }}>
-              <div style={{ display: 'flex', justifyContent: 'center', padding: '12px 0 4px' }}>
-                <div style={{ width: 80, height: 20, background: '#0D0F11', borderRadius: 100 }} />
-              </div>
               <div style={{ background: '#F2F1ED', borderRadius: 38, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                {/* Dynamic island — inside screen so background is light */}
+                <div style={{ display: 'flex', justifyContent: 'center', padding: '10px 0 4px' }}>
+                  <div style={{ width: 64, height: 16, background: '#1A1C1E', borderRadius: 100 }} />
+                </div>
                 {/* App bar */}
-                <div style={{ background: W, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', borderBottom: '1px solid #f0f0f0' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <div style={{ width: 16, height: 16, borderRadius: '50%', background: B, flexShrink: 0 }} />
-                    <span style={{ fontFamily: 'Montserrat', fontSize: 10, fontWeight: 900, color: D }}>Fasta</span>
+                <div style={{ background: W, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', borderBottom: '1px solid #f0f0f0' }}>
+                  <div style={{ display: 'flex', alignItems: 'center' }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="https://fastaapp.co/logo-full.png" alt="Fasta" style={{ height: 28 }} />
                   </div>
-                  <div style={{ background: D, borderRadius: 100, padding: '2px 8px', display: 'flex', alignItems: 'center', gap: 4 }}>
-                    <div style={{ width: 5, height: 5, borderRadius: '50%', background: B }} />
-                    <span style={{ fontFamily: 'Poppins', fontSize: 7, fontWeight: 600, color: W }}>PRO</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                    <div style={{ background: D, borderRadius: 100, padding: '2px 7px', display: 'flex', alignItems: 'center', gap: 3 }}>
+                      <div style={{ width: 4, height: 4, borderRadius: '50%', background: B }} />
+                      <span style={{ fontFamily: 'Poppins', fontSize: 6.5, fontWeight: 600, color: W }}>PRO</span>
+                    </div>
+                    <div style={{ width: 18, height: 18, borderRadius: '50%', background: '#C4A882', flexShrink: 0 }} />
                   </div>
                 </div>
                 {/* Content */}
-                <div style={{ padding: '12px 12px 8px', display: 'flex', flexDirection: 'column' }}>
-                  <span style={{ fontFamily: 'Poppins', fontSize: 7, color: 'rgba(44,48,51,0.4)', marginBottom: 2, letterSpacing: 1 }}>GOOD EVENING</span>
-                  <span style={{ fontFamily: 'Montserrat', fontSize: 13, fontWeight: 900, color: D, marginBottom: 10 }}>Hi, Sarah</span>
-                  <div style={{ background: W, borderRadius: 14, padding: 12, marginBottom: 8, display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ width: 28, height: 3, background: B, borderRadius: 2, marginBottom: 8 }} />
-                    <span style={{ fontFamily: 'Montserrat', fontSize: 11, fontWeight: 900, color: D, marginBottom: 5 }}>Your home, fixed fast.</span>
-                    <span style={{ fontFamily: 'Poppins', fontSize: 8, color: 'rgba(44,48,51,0.45)', marginBottom: 9 }}>Trusted pros, when you need them.</span>
-                    <div style={{ background: B, borderRadius: 10, padding: '7px', display: 'flex', justifyContent: 'center' }}>
-                      <span style={{ fontFamily: 'Poppins', fontSize: 9, fontWeight: 600, color: W }}>Get it fixed →</span>
+                <div style={{ padding: '10px 12px 6px', display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontFamily: 'Poppins', fontWeight: 400, fontSize: 6.5, color: 'rgba(44,48,51,0.4)', letterSpacing: 1, marginBottom: 2 }}>GOOD EVENING</span>
+                  <span style={{ fontFamily: 'Montserrat', fontSize: 14, fontWeight: 700, color: D, marginBottom: 2 }}>Hi, Sarah</span>
+                  <span style={{ fontFamily: 'Poppins', fontWeight: 400, fontSize: 7, color: 'rgba(44,48,51,0.5)', marginBottom: 8 }}>Still need something fixed today?</span>
+                  {/* Hero card */}
+                  <div style={{ background: W, borderRadius: 14, padding: '10px 11px', marginBottom: 6, display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ width: 22, height: 2.5, background: B, borderRadius: 2, marginBottom: 6 }} />
+                    <span style={{ fontFamily: 'Montserrat', fontSize: 10.5, fontWeight: 700, color: D, marginBottom: 3 }}>Your home, fixed fast.</span>
+                    <span style={{ fontFamily: 'Poppins', fontWeight: 400, fontSize: 7, color: 'rgba(44,48,51,0.45)', marginBottom: 7 }}>Trusted pros, when you need them.</span>
+                    <div style={{ background: B, borderRadius: 10, padding: '6px 8px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 5 }}>
+                      <span style={{ fontFamily: 'Poppins', fontSize: 8, fontWeight: 600, color: W }}>Get it fixed</span>
+                      <span style={{ fontFamily: 'Poppins', fontWeight: 400, fontSize: 8, color: W }}>→</span>
+                    </div>
+                    <span style={{ fontFamily: 'Poppins', fontWeight: 400, fontSize: 6, color: 'rgba(44,48,51,0.3)', marginTop: 4, textAlign: 'center' }}>Start a request in a few taps.</span>
+                  </div>
+                  {/* Urgent help card */}
+                  <div style={{ border: '1px solid rgba(224,85,53,0.35)', borderRadius: 12, padding: '7px 8px', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <div style={{ width: 3, height: 26, background: B, borderRadius: 2, flexShrink: 0 }} />
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                      <span style={{ fontFamily: 'Poppins', fontSize: 7.5, fontWeight: 600, color: D, marginBottom: 1 }}>Need urgent help?</span>
+                      <span style={{ fontFamily: 'Poppins', fontWeight: 400, fontSize: 6.5, color: 'rgba(44,48,51,0.45)' }}>FASTA can prioritise dispatch when a fundi is available.</span>
+                    </div>
+                    <div style={{ border: '1px solid rgba(224,85,53,0.6)', borderRadius: 100, padding: '3px 6px', flexShrink: 0, display: 'flex' }}>
+                      <span style={{ fontFamily: 'Poppins', fontSize: 6, fontWeight: 600, color: B }}>Get help fast</span>
                     </div>
                   </div>
-                  <div style={{ display: 'flex', gap: 6 }}>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 6, flex: 1 }}>
-                      <Svc name="Plumbing" price="KES 1,500" />
-                      <Svc name="HVAC" price="KES 2,000" />
+                  {/* Why Fasta */}
+                  <span style={{ fontFamily: 'Poppins', fontWeight: 400, fontSize: 6, color: 'rgba(44,48,51,0.35)', letterSpacing: 1, marginBottom: 4 }}>WHY FASTA</span>
+                  <div style={{ display: 'flex', gap: 5 }}>
+                    <div style={{ flex: 1, background: W, borderRadius: 10, padding: '7px', display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ width: 14, height: 14, borderRadius: 5, background: 'rgba(224,85,53,0.1)', marginBottom: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ width: 7, height: 7, borderRadius: 1, border: '1.5px solid ' + B }} />
+                      </div>
+                      <span style={{ fontFamily: 'Poppins', fontSize: 7, fontWeight: 600, color: D, marginBottom: 2 }}>Vetted fundis</span>
+                      <span style={{ fontFamily: 'Poppins', fontWeight: 400, fontSize: 6, color: 'rgba(44,48,51,0.45)' }}>Docs reviewed before any job.</span>
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 6, flex: 1 }}>
-                      <Svc name="Electrical" price="KES 1,500" />
-                      <Svc name="Handyman" price="KES 2,500" />
+                    <div style={{ flex: 1, background: W, borderRadius: 10, padding: '7px', display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ width: 14, height: 14, borderRadius: 5, background: 'rgba(224,85,53,0.1)', marginBottom: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div style={{ width: 7, height: 7, borderRadius: '50%', border: '1.5px solid ' + B }} />
+                      </div>
+                      <span style={{ fontFamily: 'Poppins', fontSize: 7, fontWeight: 600, color: D, marginBottom: 2 }}>You approve first</span>
+                      <span style={{ fontFamily: 'Poppins', fontWeight: 400, fontSize: 6, color: 'rgba(44,48,51,0.45)' }}>Job complete when you confirm.</span>
                     </div>
                   </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'center', padding: '8px 0 10px' }}>
-                  <div style={{ width: 48, height: 4, background: 'rgba(44,48,51,0.2)', borderRadius: 2 }} />
+                {/* Bottom nav */}
+                <div style={{ background: W, display: 'flex', justifyContent: 'space-around', padding: '6px 4px 8px', marginTop: 4 }}>
+                  {['Home', 'Services', 'My Jobs', 'Profile'].map((label, i) => (
+                    <div key={label} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+                      <div style={{ width: 14, height: 14, borderRadius: 3, background: i === 0 ? 'rgba(224,85,53,0.15)' : 'rgba(44,48,51,0.07)' }} />
+                      <span style={{ fontFamily: 'Poppins', fontSize: 6, color: i === 0 ? B : 'rgba(44,48,51,0.4)', fontWeight: i === 0 ? 600 : 400 }}>{label}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -209,6 +229,7 @@ export async function GET() {
       height: 630,
       fonts: [
         { name: 'Montserrat', data: montserrat900, weight: 900, style: 'normal' },
+        { name: 'Montserrat', data: montserrat700, weight: 700, style: 'normal' },
         { name: 'Poppins', data: poppins400, weight: 400, style: 'normal' },
         { name: 'Poppins', data: poppins600, weight: 600, style: 'normal' },
       ],

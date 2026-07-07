@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — Fasta',
-  description: 'Learn how Fasta Technologies Ltd collects, uses, shares, and protects your personal data when you use our home services app in Kenya.',
+  description: 'Learn how FASTA APP GLOBAL LIMITED collects, uses, shares, and protects your personal data when you use our home services app in Kenya.',
   alternates: { canonical: 'https://fastaapp.co/privacy' },
 }
 
@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-heading font-bold text-dark text-xl mb-3">1. Who we are</h2>
           <p>
-            Fasta Technologies Ltd ("Fasta", "we", "us", "our") operates the Fasta mobile application
+            FASTA APP GLOBAL LIMITED ("Fasta", "we", "us", "our") operates the Fasta mobile application
             and website at fastaapp.co. We connect households in Kenya with verified home service
             professionals. This Privacy Policy explains how we collect, use, share, and protect your
             personal information when you use our services.
@@ -109,7 +109,26 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="font-heading font-bold text-dark text-xl mb-3">9. Changes to this policy</h2>
+          <h2 className="font-heading font-bold text-dark text-xl mb-3">9. Professionals (Fundis)</h2>
+          <p>
+            For professionals we additionally collect and process verification documents (national ID, police
+            clearance certificate, trade/business registration), payout details (M-Pesa number), and location
+            while you are online to match nearby jobs. Verification documents are stored securely, used only
+            for vetting and compliance, and retained as required by law.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-heading font-bold text-dark text-xl mb-3">10. Cookies</h2>
+          <p>
+            This website may use essential cookies required for site functionality. We do not currently use
+            marketing or analytics cookies. If this changes, we will update this policy and provide appropriate
+            notice.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-heading font-bold text-dark text-xl mb-3">11. Changes to this policy</h2>
           <p>
             We may update this Privacy Policy from time to time. We will notify you of significant
             changes via the app or email. Continued use of Fasta after changes constitutes
@@ -118,11 +137,16 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="font-heading font-bold text-dark text-xl mb-3">10. Contact</h2>
+          <h2 className="font-heading font-bold text-dark text-xl mb-3">12. Contact &amp; Data Protection</h2>
           <p>
-            Fasta Technologies Ltd<br />
+            FASTA APP GLOBAL LIMITED<br />
             Nairobi, Kenya<br />
             Email: <a href="mailto:support@fastaapp.co" className="text-brand underline">support@fastaapp.co</a>
+          </p>
+          <p className="mt-3">
+            For data protection enquiries or to exercise your rights under the Kenya Data Protection Act,
+            contact us at the email above. You may also lodge a complaint with the Office of the Data
+            Protection Commissioner (ODPC) of Kenya.
           </p>
         </section>
 

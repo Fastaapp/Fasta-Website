@@ -17,7 +17,7 @@ const STEPS = [
     icon: Search,
     title: 'Choose a Service',
     description:
-      'Browse our list of services — from electrical work to deep cleaning. Select exactly what you need with just a tap.',
+      'Browse our services — plumbing, electrical, HVAC and handyman. Select exactly what you need with just a tap.',
     detail: 'Plumbing · Electrical · HVAC · Handyman',
     visual: (
       <div className="w-full h-full flex flex-col items-center justify-center gap-4 p-8">
@@ -46,7 +46,7 @@ const STEPS = [
     title: 'Get Matched Instantly',
     description:
       'Our smart system matches you with the nearest verified professional in seconds — no waiting, no phone calls.',
-    detail: 'Average match time: under 3 minutes',
+    detail: 'Plumbing · Electrical · HVAC · Handyman',
     visual: (
       <div className="w-full h-full flex flex-col items-center justify-center gap-4 p-8">
         <div className="relative">
@@ -126,7 +126,7 @@ const STEPS = [
         <div className="flex items-center gap-3 bg-dark rounded-xl px-4 py-2.5 w-full max-w-xs">
           <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
           <span className="text-white text-xs font-body">Kevin is on his way</span>
-          <span className="ml-auto text-brand text-xs font-bold font-body">~8 min</span>
+          <span className="ml-auto text-brand text-xs font-bold font-body">On the way</span>
         </div>
       </div>
     ),

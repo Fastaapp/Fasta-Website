@@ -72,8 +72,17 @@ export default function DeleteAccountPage() {
         </p>
       </div>
 
+      {/* In-app option */}
+      <div className="bg-brand/5 border border-brand/15 rounded-2xl p-6 mb-10">
+        <h2 className="font-heading font-bold text-dark text-lg mb-2">Delete directly in the app</h2>
+        <p className="text-sm font-body text-dark/60 leading-relaxed">
+          You can also delete your account directly in the app: go to <strong>Account → Close account</strong>.
+          Follow the on-screen steps to permanently remove your account and data.
+        </p>
+      </div>
+
       {/* Steps */}
-      <h2 className="font-heading font-bold text-dark text-xl mb-6">How to delete your account</h2>
+      <h2 className="font-heading font-bold text-dark text-xl mb-6">Or request deletion by email</h2>
       <div className="space-y-5 mb-12">
         {STEPS.map((step, i) => (
           <div key={step.title} className="flex gap-4">

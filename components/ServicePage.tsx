@@ -54,7 +54,7 @@ export default function ServicePage({
             <Download size={18} />
             Download <em>Fasta</em> — It&apos;s Free
           </a>
-          <p className="text-white/30 text-xs font-body mt-3">Available on iOS & Android</p>
+          <p className="text-white/30 text-xs font-body mt-3">Coming soon to iOS & Android</p>
         </div>
       </section>
 
@@ -198,28 +198,18 @@ export default function ServicePage({
       <section className="py-20 bg-[#1E2123]" aria-labelledby="cta-heading">
         <div className="max-w-2xl mx-auto px-5 sm:px-8 text-center">
           <h2 id="cta-heading" className="font-heading font-black text-white text-3xl md:text-4xl tracking-tight mb-4">
-            Ready to book a {name.toLowerCase()} in Kenya?
+            Ready to book {/^[aeiouAEIOUhH]/.test(name) ? 'an' : 'a'} {name.toLowerCase()} in Kenya?
           </h2>
           <p className="text-white/50 font-body mb-8">
-            Download <em>Fasta</em> free and get a verified professional at your door in minutes.
+            Download <em>Fasta</em> free and get a verified professional at your door fast.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="https://apps.apple.com/app/fasta"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-7 py-3.5 bg-white text-dark font-semibold font-body rounded-2xl hover:bg-gray-100 transition-colors"
-            >
-              Download on App Store
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=co.fastaapp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-7 py-3.5 bg-brand text-white font-semibold font-body rounded-2xl hover:bg-brand-dark transition-colors"
-            >
-              Get it on Google Play
-            </a>
+            <div className="inline-flex items-center gap-3 px-7 py-3.5 bg-white/10 text-white/50 font-semibold font-body rounded-2xl border border-white/15 cursor-default">
+              App Store — Coming soon
+            </div>
+            <div className="inline-flex items-center gap-3 px-7 py-3.5 bg-white/10 text-white/50 font-semibold font-body rounded-2xl border border-white/15 cursor-default">
+              Google Play — Coming soon
+            </div>
           </div>
         </div>
       </section>

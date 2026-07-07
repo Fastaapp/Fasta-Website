@@ -9,7 +9,7 @@ const PLANS = [
     key:       'free',
     name:      'Fasta Free',
     price:     '0',
-    priceNote: 'Free forever',
+    priceNote: 'Free membership — pay as you go',
     tagline:   'Get started',
     nudge:     'Basic access when you need it',
     subtext:   'Slower during busy periods',
@@ -59,14 +59,14 @@ const PLANS = [
     ],
   },
   {
-    key:       'elite',
-    name:      'Fasta Elite',
+    key:       'pro',
+    name:      'Fasta Pro',
     price:     '999',
     priceNote: 'KSh / month',
     tagline:   'Priority service. Zero hassle.',
     nudge:     'Fastest service with full priority',
     subtext:   null,
-    cta:       'Go Elite',
+    cta:       'Go Pro',
     highlight: false,
     dark:      true,
     badge:     'Premium',
@@ -78,7 +78,7 @@ const PLANS = [
       'Live + priority updates',
       'Emergency requests',
       'Priority support',
-      'Service assurance',
+      'Workmanship cover',
     ],
     excluded: [],
   },
@@ -86,14 +86,14 @@ const PLANS = [
 
 // ─── Comparison rows ─────────────────────────────────────────────────────────
 const COMPARE_ROWS = [
-  { feature: 'Job Requests',     free: 'Limited',   plus: 'Unlimited',  elite: 'Unlimited'    },
-  { feature: 'Speed of Service', free: 'Standard',  plus: 'Faster',     elite: 'Fastest'      },
-  { feature: 'Queue Position',   free: 'Back',       plus: 'Priority',   elite: 'Skip'         },
-  { feature: 'Job Tracking',     free: 'Basic',      plus: 'Live updates', elite: 'Priority updates' },
-  { feature: 'Rescheduling',     free: false,        plus: true,         elite: true            },
-  { feature: 'Emergency Requests', free: false,      plus: false,        elite: true            },
-  { feature: 'Priority Support', free: false,        plus: false,        elite: true            },
-  { feature: 'Service Assurance',free: false,        plus: false,        elite: true            },
+  { feature: 'Job Requests',       free: 'Limited',    plus: 'Unlimited',      pro: 'Unlimited'         },
+  { feature: 'Speed of Service',   free: 'Standard',   plus: 'Faster',         pro: 'Fastest'           },
+  { feature: 'Queue Position',     free: 'Back',       plus: 'Priority',       pro: 'Skip'              },
+  { feature: 'Job Tracking',       free: 'Basic',      plus: 'Live updates',   pro: 'Priority updates'  },
+  { feature: 'Rescheduling',       free: false,        plus: true,             pro: true                },
+  { feature: 'Emergency Requests', free: false,        plus: false,            pro: true                },
+  { feature: 'Priority Support',   free: false,        plus: false,            pro: true                },
+  { feature: 'Workmanship Cover',  free: false,        plus: false,            pro: true                },
 ]
 
 function Cell({ value }: { value: string | boolean }) {
@@ -190,9 +190,12 @@ export default function Pricing() {
                     </>
                   )}
                 </div>
-                <p className={`text-xs font-body mb-5 ${plan.dark ? 'text-white/30' : 'text-dark/35'}`}>
+                <p className={`text-xs font-body mb-2 ${plan.dark ? 'text-white/30' : 'text-dark/35'}`}>
                   {plan.priceNote}
                 </p>
+                {plan.key === 'free' && (
+                  <p className="text-xs font-body text-brand/70 mb-3">KES 200 + VAT service fee per job</p>
+                )}
 
                 {/* Tagline + description */}
                 <p className={`text-sm font-body font-semibold mb-1 ${
@@ -270,7 +273,7 @@ export default function Pricing() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {plan.key === 'elite' && <Flame size={14} className="text-brand" />}
+                  {plan.key === 'pro' && <Flame size={14} className="text-brand" />}
                   {plan.cta}
                 </motion.a>
 
@@ -344,7 +347,7 @@ export default function Pricing() {
               <div className="px-5 py-3.5 flex items-center">
                 <span className="text-sm text-dark/60 font-body">{row.feature}</span>
               </div>
-              {[row.free, row.plus, row.elite].map((val, j) => (
+              {[row.free, row.plus, row.pro].map((val, j) => (
                 <div
                   key={j}
                   className={`px-5 py-3.5 flex items-center justify-center border-l border-gray-100 ${
@@ -358,16 +361,29 @@ export default function Pricing() {
           ))}
         </motion.div>
 
+        {/* ── Footnote ─────────────────────────────────────────────── */}
+        <motion.div
+          className="text-center mt-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          <p className="text-dark/40 text-xs font-body max-w-xl mx-auto">
+            Free plan jobs carry a KES 200 + VAT service fee. Prices include 16% VAT where stated. Fees are shown in the app before you book.
+          </p>
+        </motion.div>
+
         {/* ── Bottom nudge ─────────────────────────────────────────── */}
         <motion.div
-          className="text-center mt-10"
+          className="text-center mt-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
           <p className="text-dark/40 text-sm font-body">
-            All plans include secure M-Pesa payments and in-app tracking. Upgrade or cancel anytime.
+            All plans include cashless M-Pesa payments and in-app tracking. Upgrade or cancel anytime.
           </p>
         </motion.div>
 

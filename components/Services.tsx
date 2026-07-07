@@ -19,7 +19,7 @@ const SERVICES = [
     icon: Zap,
     name: 'Electrical',
     href: '/services/electrician-kenya',
-    description: 'Wiring, repairs, installations and more. Safe, certified pros.',
+    description: 'Wiring, repairs, installations and more. Verified, document-checked pros.',
     color: '#FEF08A',
     iconColor: '#CA8A04',
     bg: '#FEFCE8',

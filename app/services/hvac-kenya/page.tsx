@@ -31,16 +31,16 @@ export default function HvacKenyaPage() {
         { title: 'AC Not Turning On', description: 'Electrical faults, remote issues or control board failures. Our technicians pinpoint the issue and fix it fast.' },
       ]}
       reasons={[
-        { title: 'Certified HVAC Technicians', description: 'Fasta HVAC pros are trained, certified and experienced with all major AC brands sold in Kenya.' },
-        { title: 'Fast Response in Nairobi', description: 'Get matched with the nearest available AC technician in minutes. Same-day service available.' },
-        { title: 'All Major Brands Covered', description: 'LG, Samsung, Midea, Daikin, Panasonic, Haier and more — our technicians work on them all.' },
+        { title: 'Verified HVAC Technicians', description: 'Every Fasta HVAC technician is ID-verified and background-checked before joining the platform — national ID, police clearance, and trade registration reviewed by our team.' },
+        { title: 'Fast Response in Nairobi', description: 'Get matched with the nearest available verified AC technician — fast. Track everything live in the app.' },
+        { title: 'Major AC Brands', description: 'Our technicians are experienced with the major AC brands sold in Kenya, including LG, Samsung, Midea, Daikin and more.' },
         { title: 'Transparent Pricing', description: 'See an estimated cost before confirming. No hidden labour charges or parts markups.' },
       ]}
       faqs={[
-        { question: 'How do I book an AC technician in Nairobi?', answer: 'Download the Fasta app, select HVAC, and get matched with a verified AC technician near you in minutes.' },
-        { question: 'How often should I service my AC in Kenya?', answer: 'In Kenya\'s dusty environment, AC units should be serviced every 3-6 months. Fasta makes it easy to schedule regular maintenance.' },
+        { question: 'How do I book an AC technician in Nairobi?', answer: 'Download the Fasta app, select HVAC, and get matched with a verified AC technician near you.' },
+        { question: 'How often should I service my AC in Kenya?', answer: 'In Kenya\'s dusty environment, AC units should be serviced every 3-6 months. Book a maintenance visit for today or tomorrow on the Fasta app.' },
         { question: 'Can Fasta install a new AC unit?', answer: 'Yes. Fasta technicians handle full AC installations including mounting, piping, electrical connections and commissioning.' },
-        { question: 'Which AC brands do Fasta technicians work on?', answer: 'Our technicians are experienced with all major brands including LG, Samsung, Midea, Daikin, Panasonic, Haier and more.' },
+        { question: 'Which AC brands do Fasta technicians work on?', answer: 'Our technicians are experienced with the major AC brands sold in Kenya, including LG, Samsung, Midea, Daikin, Panasonic and Haier.' },
       ]}
       relatedLinks={[
         { label: 'Find an Electrician in Kenya', href: '/services/electrician-kenya' },

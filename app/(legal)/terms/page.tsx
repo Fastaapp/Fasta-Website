@@ -22,7 +22,7 @@ export default function TermsPage() {
             By downloading, registering for, or using the Fasta application or website ("Service"),
             you agree to be bound by these Terms of Service ("Terms"). If you do not agree, do not
             use the Service. These Terms constitute a legally binding agreement between you and
-            Fasta Technologies Ltd, a company registered in Kenya.
+            FASTA APP GLOBAL LIMITED, a company registered in Kenya.
           </p>
         </section>
 
@@ -32,7 +32,8 @@ export default function TermsPage() {
             Fasta is a marketplace platform that connects customers ("Users") with independent home
             service professionals ("Pros"). Fasta is not itself a home services company and does not
             employ Pros. We provide the platform, matching technology, and payment infrastructure.
-            The contract for services is between you and the Pro directly.
+            The contract for services is between you and the Pro directly. Fasta does not guarantee
+            professional availability or response times.
           </p>
         </section>
 
@@ -58,10 +59,14 @@ export default function TermsPage() {
         <section>
           <h2 className="font-heading font-bold text-dark text-xl mb-3">5. Payments</h2>
           <ul className="list-disc pl-5 space-y-2">
-            <li>All payments are processed via M-Pesa. Prices displayed include applicable taxes.</li>
-            <li>Payment is due upon completion of the job unless otherwise agreed.</li>
-            <li>Subscription plans (Fasta Plus, Fasta Elite) are billed monthly and renew automatically until cancelled.</li>
-            <li>Refunds are handled on a case-by-case basis. Contact support within 48 hours of a completed job to raise a dispute.</li>
+            <li>All payments are processed via M-Pesa. Card payments are not currently available.</li>
+            <li>Payment is collected via M-Pesa and held by Fasta. It is released to the professional only after you confirm the job is complete in the app.</li>
+            <li>Fundi payouts are made within 24 hours of customer approval.</li>
+            <li>Free-plan bookings carry a KES 200 + VAT service fee per job.</li>
+            <li>Professionals pay Fasta a commission of 7.5% + VAT per job.</li>
+            <li>All fees are subject to Kenya VAT at 16%.</li>
+            <li>Subscription plans (Fasta Plus, Fasta Pro) are billed monthly and renew automatically until cancelled.</li>
+            <li>Refunds are handled on a case-by-case basis. Contact support within 48 hours of a completed job to raise a dispute via the in-app dispute flow.</li>
           </ul>
         </section>
 
@@ -96,7 +101,7 @@ export default function TermsPage() {
           <h2 className="font-heading font-bold text-dark text-xl mb-3">8. Intellectual property</h2>
           <p>
             All content on the Fasta platform — including the name, logo, design, software, and
-            copy — is owned by Fasta Technologies Ltd and protected by Kenyan and international
+            copy — is owned by FASTA APP GLOBAL LIMITED and protected by Kenyan and international
             intellectual property laws. You may not reproduce or use any of it without our written
             permission.
           </p>
@@ -132,7 +137,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-heading font-bold text-dark text-xl mb-3">12. Contact</h2>
           <p>
-            Fasta Technologies Ltd<br />
+            FASTA APP GLOBAL LIMITED<br />
             Nairobi, Kenya<br />
             Email: <a href="mailto:support@fastaapp.co" className="text-brand underline">support@fastaapp.co</a>
           </p>

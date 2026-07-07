@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     'handyman Nairobi',
     'Fasta app',
   ],
-  authors: [{ name: 'Fasta Technologies Ltd', url: 'https://fastaapp.co' }],
-  creator: 'Fasta Technologies Ltd',
-  publisher: 'Fasta Technologies Ltd',
+  authors: [{ name: 'FASTA APP GLOBAL LIMITED', url: 'https://fastaapp.co' }],
+  creator: 'FASTA APP GLOBAL LIMITED',
+  publisher: 'FASTA APP GLOBAL LIMITED',
   robots: {
     index: true,
     follow: true,
@@ -69,10 +69,6 @@ export const metadata: Metadata = {
     title: 'Fasta – On-Demand Home Services in Kenya',
     description: 'Find trusted home service professionals in Kenya. Book in minutes.',
     images: ['/api/og'],
-  },
-  appLinks: {
-    ios: { url: 'https://apps.apple.com/app/fasta', app_store_id: 'fasta' },
-    android: { package: 'co.fastaapp', app_name: 'Fasta' },
   },
 }
 

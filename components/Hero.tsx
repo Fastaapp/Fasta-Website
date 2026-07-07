@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Star, CheckCircle, Zap, Wrench, Droplets, Wind, ShieldCheck } from 'lucide-react'
+import { CheckCircle, Zap, Wrench, Droplets, Wind, ShieldCheck } from 'lucide-react'
 
 const PHONE_SERVICES = [
   { Icon: Droplets, label: 'Plumbing'   },
@@ -164,19 +164,6 @@ function PhoneMockup() {
         </div>
       </FloatingBadge>
 
-      <FloatingBadge delay={1.5} className="hidden sm:flex -right-10 top-28 md:-right-16 !bg-[#1E2123] !border-white/10 border">
-        <div className="flex items-center gap-1.5">
-          <Star size={11} className="text-yellow-400 fill-yellow-400" />
-          <span>4.9 Rating</span>
-        </div>
-      </FloatingBadge>
-
-      <FloatingBadge delay={0.8} className="hidden sm:flex -left-8 bottom-24 md:-left-14 !bg-[#1E2123] !border-white/10 border">
-        <div className="flex items-center gap-1.5">
-          <Zap size={11} className="text-brand fill-brand" />
-          <span>Pro found in 3 min</span>
-        </div>
-      </FloatingBadge>
     </div>
   )
 }
@@ -238,27 +225,10 @@ export default function Hero() {
             <PlayBadge />
           </motion.div>
 
-          {/* Social proof */}
-          <motion.div variants={item} className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 sm:gap-6 text-sm text-white/50 font-body">
-            <div className="flex items-center gap-2">
-              {/* Avatar stack */}
-              <div className="flex -space-x-2">
-                {['#E05535', '#C04020', '#9A3018'].map((color, i) => (
-                  <div key={i} className="w-7 h-7 rounded-full border-2 border-[#1A1C1E]" style={{ backgroundColor: color }} />
-                ))}
-              </div>
-              <span>50k+ downloads</span>
-            </div>
-            <div className="w-px h-4 bg-white/20" />
-            <div className="flex items-center gap-1">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={12} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <span>4.9 rating</span>
-            </div>
-          </motion.div>
+          {/* Launch info */}
+          <motion.p variants={item} className="text-white/45 text-sm font-body text-center md:text-left">
+            Launching soon in Nairobi — join the waitlist.
+          </motion.p>
         </motion.div>
 
         {/* ── Right: Phone Mockup ─────────────────────────────────── */}

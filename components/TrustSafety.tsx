@@ -1,64 +1,28 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ShieldCheck, Star, Clock, CreditCard } from 'lucide-react'
-
-// ─── Animated counter ─────────────────────────────────────────────────────────
-function CountUp({ to, prefix = '', suffix = '', duration = 2000 }: {
-  to: number; prefix?: string; suffix?: string; duration?: number
-}) {
-  const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once: true })
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    if (!isInView) return
-    const steps = 60
-    const step = to / steps
-    let current = 0
-    const timer = setInterval(() => {
-      current += step
-      if (current >= to) { setCount(to); clearInterval(timer) }
-      else setCount(Math.floor(current))
-    }, duration / steps)
-    return () => clearInterval(timer)
-  }, [isInView, to, duration])
-
-  return (
-    <span ref={ref}>
-      {prefix}{count >= 1000 ? (count / 1000).toFixed(count % 1000 === 0 ? 0 : 1) + 'k' : count}{suffix}
-    </span>
-  )
-}
-
-const STATS = [
-  { value: 10000, suffix: '+',   label: 'Verified Professionals', prefix: '',  starRating: false },
-  { value: 50000, suffix: '+',   label: 'Jobs Completed',         prefix: '',  starRating: false },
-  { value: 4.9,   suffix: '',    label: 'Average Rating',         prefix: '',  starRating: true  },
-  { value: 8,     suffix: ' min',label: 'Average Response',       prefix: '<', starRating: false },
-]
 
 const TRUST_ITEMS = [
   {
     icon: ShieldCheck,
-    title: 'Background Verified',
-    description: 'Every professional is vetted with background checks, ID verification, and skills assessment before they can accept a job.',
+    title: 'Document Verified',
+    description: 'Every fundi is verified before their first job — national ID, police clearance certificate, and trade registration where applicable, all reviewed by our team.',
   },
   {
     icon: Star,
     title: 'Ratings & Reviews',
-    description: 'Transparent, honest ratings from real customers after every job. Your feedback shapes our professional network.',
+    description: 'Transparent, honest ratings from customers after every job. Your feedback shapes our professional network.',
   },
   {
     icon: Clock,
-    title: 'Fast Response Time',
-    description: 'Our matching system ensures a professional is dispatched within minutes. We\'re committed to being there when you need us.',
+    title: 'Fast Matching',
+    description: 'Get matched with the nearest available verified fundi — fast. Track everything live in the app.',
   },
   {
     icon: CreditCard,
     title: 'Secure Payments',
-    description: 'Pay safely through the app with M-Pesa or card. No cash, no awkwardness — fully encrypted and secure.',
+    description: 'Cashless M-Pesa payment through the app. Your payment is only released to the fundi after you approve the finished job.',
   },
 ]
 
@@ -99,30 +63,8 @@ export default function TrustSafety() {
             <span className="gradient-text">Every Single Time.</span>
           </h2>
           <p className="text-white/50 text-lg font-body max-w-md mx-auto">
-            We don't just connect you with anyone. Every <em>Fasta</em> professional is verified, trained, and rated.
+            We don't just connect you with anyone. Every <em>Fasta</em> professional is document-verified before their first job.
           </p>
-        </motion.div>
-
-        {/* ── Stats Row ─────────────────────────────────────────── */}
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden mb-16"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          {STATS.map((stat) => (
-            <div key={stat.label} className="bg-dark flex flex-col items-center justify-center py-8 px-4 text-center">
-              <p className="font-heading font-black text-3xl md:text-4xl text-white mb-1 tracking-tight flex items-center gap-1.5">
-                {stat.prefix}
-                <CountUp to={stat.value} suffix={stat.suffix} />
-                {stat.starRating && (
-                  <Star size={22} className="text-yellow-400 fill-yellow-400 mb-0.5" />
-                )}
-              </p>
-              <p className="text-white/40 text-sm font-body">{stat.label}</p>
-            </div>
-          ))}
         </motion.div>
 
         {/* ── Trust Features Grid ────────────────────────────────── */}
@@ -160,8 +102,8 @@ export default function TrustSafety() {
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-brand/30 bg-brand/10">
             <ShieldCheck size={16} className="text-brand" />
             <p className="text-white/80 text-sm font-body">
-              <span className="text-brand font-semibold">100% satisfaction guarantee</span>
-              {' '}— If you're not happy, we'll make it right.
+              <span className="text-brand font-semibold">Workmanship cover on eligible plans</span>
+              {' '}— if the job isn't done right, we'll help put it right. <a href="/terms" className="underline text-white/60">See Terms.</a>
             </p>
           </div>
         </motion.div>

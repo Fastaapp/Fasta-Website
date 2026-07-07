@@ -31,16 +31,16 @@ export default function HandymanKenyaPage() {
         { title: 'Painting & Touch-Ups', description: 'Small painting jobs, wall touch-ups and minor decorating work done neatly by skilled handymen.' },
       ]}
       reasons={[
-        { title: 'Vetted & Reliable Handymen', description: 'Every Fasta handyman is background-checked, ID-verified and rated by previous customers so you know who\'s coming.' },
+        { title: 'Document Verified Handymen', description: 'Every Fasta handyman is background-checked and ID-verified before joining the platform — national ID, police clearance reviewed by our team.' },
         { title: 'No Job Too Small', description: 'Unlike contractors who ignore small jobs, Fasta handymen are ready for quick fixes and odd jobs.' },
-        { title: 'Same-Day Availability', description: 'Most Fasta handyman bookings are matched within 8 minutes with same-day arrival in Nairobi.' },
-        { title: 'Pay via M-Pesa', description: 'Secure in-app payment via M-Pesa or card after the job. No cash, no awkward negotiations.' },
+        { title: 'Fast Matching', description: 'Get matched with the nearest available verified handyman — fast. Track everything live in the app.' },
+        { title: 'Cashless M-Pesa Payment', description: 'Cashless M-Pesa payment through the app. Your payment is only released to the fundi after you approve the finished job.' },
       ]}
       faqs={[
-        { question: 'How do I find a reliable handyman in Nairobi?', answer: 'Download the Fasta app, select Handyman, describe the job, and get matched with a verified handyman near you in minutes.' },
+        { question: 'How do I find a reliable handyman in Nairobi?', answer: 'Download the Fasta app, select Handyman, describe the job, and get matched with a verified handyman near you.' },
         { question: 'What jobs does a Fasta handyman do?', answer: 'Furniture assembly, TV mounting, door repairs, general fixing, curtain fitting, wall patching, touch-up painting and much more.' },
         { question: 'How much does a handyman cost in Kenya?', answer: 'Fasta shows you an estimated price before confirming your booking so there are no surprises.' },
-        { question: 'Can I book a handyman for the same day in Nairobi?', answer: 'Yes — most Fasta handyman bookings are fulfilled same day, often within the hour in Nairobi.' },
+        { question: 'Can I book a handyman for the same day in Nairobi?', answer: 'Many Nairobi jobs can be handled the same day, depending on fundi availability. The app shows you live matching status.' },
       ]}
       relatedLinks={[
         { label: 'Find an Electrician in Kenya', href: '/services/electrician-kenya' },
