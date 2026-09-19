@@ -3,9 +3,9 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/',
+        source: '/((?!waitlist|api|_next|favicon.ico).*)',
         destination: '/waitlist',
-        permanent: false, // temporary redirect — easy to remove when we go live
+        permanent: false, // temporary — remove when we go live
       },
     ]
   },
